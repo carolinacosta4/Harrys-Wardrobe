@@ -1,0 +1,21 @@
+#containerBody{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 1em;
+    justify-content: center;
+}
+
+#grid1, #grid2, #grid3{
+    display: grid;
+    grid-template-columns: 10em 10em 10em 10em 1fr;
+    column-gap: 1em;
+}
+
+img{
+    width: 10em;
+    height: 10em;
+}
+
+#grid1 div, #grid2 div, #grid3 div{
+    width: 10em;
+}
