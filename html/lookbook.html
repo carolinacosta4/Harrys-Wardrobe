@@ -10,22 +10,23 @@
 <body>
     <header>
         <p id="mainTitle" onclick="window.location.href = '../index.html'">HARRY'S WARDROBE</p>
-        <a href="html/lookbook.html">
+        <a id="outfits" class="menu" href="lookbook.html">
         <p>LOOKBOOK</p>
         </a>
         <div class="dropdown">
             <button class="dropbtn">MENU</button>
             <div class="dropdown-content">
-              <a id="tops">TOPS</a>
-              <a href="#">BOTTOMS</a>
-              <a href="#">OUTERWEAR</a>
-              <a href="#">SHOES</a>
-              <a href="#">ACESSORIES</a>
+                <a id="tops" class="menu">TOPS</a>
+                <a id="bottoms" class="menu">BOTTOMS</a>
+                <a id="outerwear" class="menu">OUTERWEAR</a>
+                <a id="shoes" class="menu">SHOES</a>
+                <a id="accessories" class="menu">ACCESSORIES</a>
             </div>
         </div>
     </header>
     <div id="containerBody">
     </div>
-    <script type="module" src="../script/lookbook.js"></script>
+    <script type="module" src="../script/modelUsers.js"></script>
+    <script type="module" src="../script/lookbookView.js"></script>
 </body>
 </html>

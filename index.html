@@ -9,17 +9,17 @@
 <body>
     <header>
         <p id="mainTitle" onclick="window.location.href = 'index.html'">HARRY'S WARDROBE</p>
-        <a href="html/lookbook.html">
+        <a id="outfits" class="menu" href="html/lookbook.html">
         <p>LOOKBOOK</p>
         </a>
         <div class="dropdown">
             <button class="dropbtn">MENU</button>
             <div class="dropdown-content">
-              <p onclick="fillContainerBody('tops')">TOPS</p>
-              <a onclick="fillContainerBody('bottoms')">BOTTOMS</a>
-              <a onclick="fillContainerBody('outerwear')">OUTERWEAR</a>
-              <a onclick="fillContainerBody('shoes')">SHOES</a>
-              <a onclick="fillContainerBody('acessories')">ACESSORIES</a>
+              <a id="tops" class="menu">TOPS</a>
+              <a id="bottoms" class="menu">BOTTOMS</a>
+              <a id="outerwear" class="menu">OUTERWEAR</a>
+              <a id="shoes" class="menu">SHOES</a>
+              <a id="acessories" class="menu">ACESSORIES</a>
             </div>
         </div>
     </header>
@@ -36,6 +36,7 @@
             <p>The British singer, songwriter, and actor, has become a true fashion icon, transcending boundaries and challenging societal norms with his distinctive style choices. With every appearance, he exudes an aura of charm, confidence, and creativity, making him a force to be reckoned with in the fashion industry.</p>
         </div>
     </div>
-    <script type="module" src="script/lookbook.js"></script>
+    <script type="module" src="script/lookbookView.js"></script>
+    <script type="module" src="script/modelUsers.js"></script>
 </body>
 </html>

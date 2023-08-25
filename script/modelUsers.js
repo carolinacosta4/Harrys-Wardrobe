@@ -1,99 +1,75 @@
 export class Users {
-    //ADICIONAR HASHTAGS PARA TORNAREM PRIVADAS
     username = "";
     email = "";
     password = "";
     avatar = "";
-    currentLevel = 0;
-    levelLoad = 0;
-    finishedChallenges = [];
-    badges = [];
-    badgesDescription = [];
-    words = [];
     code = 0;
     isBlocked = false;
-    timeChallenges = 0;
-    isFinished = false
+    pageLoad = "";
+    favorites = []
 
-    constructor(username, email, password, avatar, currentLevel, levelLoad, finishedChallenges, badges, badgesDescription, words, code, isBlocked, timeChallenges, isFinished){
+    constructor(username, email, password, avatar, code, isBlocked, pageLoad, favorites){
         this.username = username;
         this.email = email;
         this.password = password;
         this.avatar = avatar;
-        this.currentLevel = currentLevel;
-        this.levelLoad = levelLoad;
-        this.finishedChallenges = finishedChallenges;
-        this.badges = badges,
-        this.badgesDescription = badgesDescription
-        this.words = words
         this.code = code
         this.isBlocked = isBlocked
-        this.timeChallenges = timeChallenges
-        this.isFinished = isFinished
+        this.pageLoad = pageLoad
+        this.favorites = favorites
     }
 }
 
-let users = localStorage.getItem("users"); // Verifica se já existem usuários no localStorage e os recupera
-if (!users) {
-  	users = [
+let usersHarry = localStorage.getItem("usersHarry"); 
+if (!usersHarry) {
+    usersHarry = [
         {username:"admin",
         email:"admin@email.com",
         password:"123",
         avatar:"../assets/imgs/avatar1.png",
-        currentLevel:3,
-        levelLoad: 0,
-        finishedChallenges:["drangAndDrop","hangMan","rebus","videoBullying","connectTheDots","radio"],
-        badges:[],
-        badgesDescription: [],
-        words:["Forgotten", "Collision"],
         code: 1,
         isBlocked: false,
-        timeChallenges: 200,
-        isFinished: true,
+        pageLoad: "",
+        favorites:[]
         }
     ]
-    localStorage.setItem("users", JSON.stringify(users))
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
 } else {
-  	users = JSON.parse(users);
+  	usersHarry = JSON.parse(usersHarry);
 }
 
 export function initUsers(){
-    users = localStorage.users ? JSON.parse(localStorage.users) : [];
+    usersHarry = localStorage.usersHarry ? JSON.parse(localStorage.usersHarry) : [];
 }
 
-// VALIDATE IF USER EXISTS
 export function userExists(username, email) {
-    if (users.some(user => user.email === email)){
+    if (usersHarry.some(user => user.email === email)){
         return "email"
     }
-    else if (users.some(user => user.username === username)){
+    else if (usersHarry.some(user => user.username === username)){
         return "username"
     }
 }
 
-// CHECKS LOGIN ACCOUNT
 export function checkLogin(usernameToValidate,passwordToValidate){
-    if (users.some(user => user.username === usernameToValidate && user.password === passwordToValidate)){
+    if (usersHarry.some(user => user.username === usernameToValidate && user.password === passwordToValidate)){
         return true
     }
 }
 
-// LOG IN
 export function login(usernameToValidate, passwordToValidate){
-    const user = users.find((user) => user.username === usernameToValidate && user.password === passwordToValidate);
+    const user = usersHarry.find((user) => user.username === usernameToValidate && user.password === passwordToValidate);
     const validationMessage = document.getElementById("validationMessageLogIn")
     if(user.isBlocked){
         validationMessage.textContent = "Your account is blocked."
         validationMessage.style.color = "red"
     }else{
         sessionStorage.setItem("loggedUser", JSON.stringify(user))
-        let usersstr = JSON.stringify(users);
+        let usersstr = JSON.stringify(usersHarry);
         window.location.href = "../index.html"
     }
 }
 
-
-// CREATE NEW USER - SIGN UP
 export function saveUser(username, email, password) {
     const newUser = new Users ( 
         username,
@@ -101,15 +77,9 @@ export function saveUser(username, email, password) {
         password,
         "../assets/imgs/avatar1.png",
         0,
-        0,
-        [],
-        [],
-        [],
-        [],
-        0,
         false,
-        0,
-        false
+        "",
+        []
     );
     if (userExists(username, email) === "email"){
         validationMessage.textContent = "Email already in use. Try another one!";
@@ -120,75 +90,69 @@ export function saveUser(username, email, password) {
         validationMessage.style.color = "red";
     }
     else {
-        users.push(newUser);
-        localStorage.setItem("users", JSON.stringify(users));
+        usersHarry.push(newUser);
+        localStorage.setItem("usersHarry", JSON.stringify(usersHarry));
         validationMessage.textContent = "User successfully created!";
         validationMessage.style.color = "green";
     }   
 }
 
-// CHECKS IF THE USER IS LOGGED
-
 export function isLogged() {
     return sessionStorage.getItem("loggedUser") ? true : false
 }
   
-// RETURNS INFO OF THE LOGGED USER
 export function getUserLogged() {
-    return JSON.parse(sessionStorage.getItem("loggedUser"))
+    // return JSON.parse(sessionStorage.getItem("loggedUser"))
+    return JSON.parse(localStorage.getItem("usersHarry"))[0]
 }
 
-// LOGOUT
 export function logout() {
     sessionStorage.removeItem("loggedUser");
 }
 
-// EDIT USERNAME
 export function editUser(username){
     const validationMessageUser = document.getElementById("validationMessageUser");
-    if (users.some(user => user.username === username)){
+    if (usersHarry.some(user => user.username === username)){
         validationMessageUser.textContent = "This username already exists. Try another one!";
         validationMessageUser.style.color = "red";
     }
     else {
         const loggedUser = getUserLogged()
-        const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.badgesDescription, loggedUser.words, loggedUser.code, loggedUser.isBlocked, loggedUser.timeChallenges, loggedUser.isFinished)
-        const index  = users.findIndex(user => user.username === loggedUser.username)
-        users[index] =  updatedUser
+        const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.favorites)
+        const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+        usersHarry[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
-        localStorage.setItem("users", JSON.stringify(users))
+        localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
         location.reload()
     }
 }
 
-// EDIT EMAIL
 export function editEmail(email){
     const validationMessageEmail = document.getElementById("validationMessageEmail");
-    if (users.some(user => user.email === email)){
+    if (usersHarry.some(user => user.email === email)){
         validationMessageEmail.textContent = "Email already in use. Try another one!";
         validationMessageEmail.style.color = "red";
     }
     else {
         const loggedUser = getUserLogged()
-        const updatedUser = new Users(loggedUser.username, email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.badgesDescription, loggedUser.words, loggedUser.code, loggedUser.isBlocked, loggedUser.timeChallenges, loggedUser.isFinished)
-        const index  = users.findIndex(user => user.username === loggedUser.username)
-        users[index] =  updatedUser
+        const updatedUser = new Users(loggedUser.username, email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.favorites)
+        const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+        usersHarry[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
-        localStorage.setItem("users", JSON.stringify(users))
+        localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
         location.reload()
     }
 }
 
-// EDIT PASSWORD
 export function editPassword(oldPassword, newPassword){
     const validationMessagePassword = document.getElementById("validationMessagePassword")
     const loggedUser = getUserLogged()
     if (oldPassword === loggedUser.password){
-        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.currentLevel, loggedUser.levelLoad, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.badgesDescription, loggedUser.words, loggedUser.code, loggedUser.isBlocked, loggedUser.timeChallenges, loggedUser.isFinished)
-        const index  = users.findIndex(user => user.username === loggedUser.username)
-        users[index] =  updatedUser
+        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.favorites)
+        const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+        usersHarry[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
-        localStorage.setItem("users", JSON.stringify(users))
+        localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
         location.reload()
     }else{
         validationMessagePassword.textContent = "Old password incorrect!";
@@ -197,17 +161,17 @@ export function editPassword(oldPassword, newPassword){
 }
 
 export function exportUsers(){
-    return users
+    return usersHarry
 }
 
 export function removeUser(userID){
-    const index  = users.findIndex(user => user.username === userID)
-    users.splice(index, 1)
-    localStorage.setItem('users', JSON.stringify(users))
+    const index  = usersHarry.findIndex(user => user.username === userID)
+    usersHarry.splice(index, 1)
+    localStorage.setItem('usersHarry', JSON.stringify(usersHarry))
 }
 
 export function isUserBlocked(userID){
-    const userFound  = users.find(user => user.username == userID)
+    const userFound  = usersHarry.find(user => user.username == userID)
     if (userFound.isBlocked == true){
         return true
     }else{
@@ -217,21 +181,21 @@ export function isUserBlocked(userID){
 
 export function blockUser(userID){
     const block = true
-    const user  = users.find(user => user.username === userID)
-    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, user.finishedChallenges, user.badges, user.badgesDescription, user.words, user.code, block, user.timeChallenges, user.isFinished)
-    const index  = users.findIndex(user => user.username === userID)
-    users[index] =  updatedUser
-    localStorage.setItem("users", JSON.stringify(users))
+    const user  = usersHarry.find(user => user.username === userID)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar,user.code, block, user.pageLoad, user.favorites)
+    const index  = usersHarry.findIndex(user => user.username === userID)
+    usersHarry[index] =  updatedUser
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
     location.reload()
 }
 
 export function unblockUser(userID){
     const block = false
-    const user  = users.find(user => user.username === userID)
-    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.currentLevel, user.levelLoad, user.finishedChallenges, user.badges, user.badgesDescription, user.words, user.code, block, user.timeChallenges, user.isFinished)
-    const index  = users.findIndex(user => user.username === userID)
-    users[index] =  updatedUser
-    localStorage.setItem("users", JSON.stringify(users))
+    const user  = usersHarry.find(user => user.username === userID)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.code, block, user.pageLoad, user.favorites)
+    const index  = usersHarry.findIndex(user => user.username === userID)
+    usersHarry[index] =  updatedUser
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
     location.reload()
 }
 
@@ -240,11 +204,12 @@ export function exportBlockedUsers(){
     return blockedUsers
 }
 
-export function changeLevelLoad(level){
+export function changePageLoad(pageLoad){
     const loggedUser = getUserLogged()
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.currentLevel, level, loggedUser.finishedChallenges, loggedUser.badges, loggedUser.badgesDescription, loggedUser.words, loggedUser.code, loggedUser.isBlocked, loggedUser.timeChallenges, loggedUser.isFinished)
-    const index  = users.findIndex(user => user.username === loggedUser.username)
-    users[index] =  updatedUser
-    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
-    localStorage.setItem("users", JSON.stringify(users))
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, pageLoad, loggedUser.favorites)
+    const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+    usersHarry[index] =  updatedUser
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
 }
+
+// localStorage.clear()

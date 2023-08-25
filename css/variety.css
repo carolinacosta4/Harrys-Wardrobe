@@ -3,7 +3,7 @@
     height: 4em;
 }
 
-#containerBody{
+#bodyContainer{
     display: grid;
     grid-template-columns: 2fr 1fr;
     font-family: Jost Regular;
