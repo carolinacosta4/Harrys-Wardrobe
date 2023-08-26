@@ -1,0 +1,143 @@
+@font-face {
+    font-family: Anton Regular;
+    src: url("../assets/Anton-Regular.ttf");
+}
+
+@font-face {
+    font-family: Jost Medium;
+    src: url("../assets/Jost-Medium.ttf");
+}
+
+@font-face {
+    font-family: Jost Regular;
+    src: url("../assets/Jost-Regular.ttf");
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Jost Regular;
+    text-align: center;
+    height: 100vh;
+	margin: -20px 0 50px;
+    background-color: bisque;
+}
+
+#containerHarrysHouse{
+    background: url(../assets/harrysHouseBg.jpg) center;
+    background-size: 48em 35em;
+    width: 25em;
+    height: 35em;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+button:hover:not(#loginBtnHome, #signUpBtnHome){
+    border-color: bisque;
+    background-color: #fff4e6;
+    color: black;
+}
+
+#loginBtnHome:hover, #signUpBtnHome:hover{
+    background-color: #fff4e6;
+    color: black;
+}
+
+#containerLogin, #containerSignUp{
+    background-color: #fff4e6;
+    width: 25em;
+    height: 35em;
+    display: none;
+}
+
+#containerLogin img, #containerSignUp img{
+    width: 24em;
+    margin-top: 1em;
+    align-self: center;
+    justify-self: center;
+}
+
+div p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+    margin: 0;
+}
+
+button {
+	border-radius: 10px;
+	border: 1px solid transparent;
+	background-color: bisque;
+	color: black;
+	font-size: 20px;
+	width: 10em;
+    height: 2em;
+	transition: transform 80ms ease-in;
+	cursor: pointer;
+}
+
+#loginBtnHome, #signUpBtnHome{
+    margin-top: 1em;
+}
+
+form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	text-align: center;
+}
+
+input::placeholder{
+	color: black;
+}
+
+input::placeholder:focus{
+	color: #fff4e6;
+}
+
+input:focus {
+    border-bottom: 2px solid bisque;
+	color: black;
+	outline: none;
+}
+
+input {
+	border: 0px;
+	border-bottom: 2px solid black;
+	border-radius: 2px;
+	padding: 8px 1px;
+	width: 100%;
+	color: black;
+	font-family: Jost Regular;
+	font-size: 16px;
+	background: #fff4e6;
+}
+
+.error:focus {
+	border-bottom: 2px solid red;
+}
+
+.success:focus {
+	border-bottom: 2px solid green;
+}
+
+.blank:focus {
+	border-bottom: 2px solid #8e9095;
+}
+
+#containerSignUp, #containerLogin, #containerHarrysHouse {
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	width: 768px;
+}
+
+h1, h2{
+    font-weight: 400;
+}

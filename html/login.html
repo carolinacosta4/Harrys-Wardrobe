@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div id="containerHarrysHouse">
+        <h1>WELCOME TO HARRY'S HOUSE</h1>
+        <form action="">
+            <button id="loginBtnHome" type="button">LOGIN</button><br>
+            <button id="signUpBtnHome" type="button">SIGN UP</button>
+        </form>
+    </div>
+    <div id="containerLogin">
+        <img src="../assets/harryLogin.png" alt="">
+        <h2>WELCOME BACK TO HARRY'S HOUSE</h2>
+        <form action="#">
+            <input id="usernameInputLogin" type="text" placeholder="Username" required><br>
+            <input id="passwordInputLogin" type="password" placeholder="Password" required><br>
+            <div id="validationMessageLogIn"></div>
+            <button id="loginBtn">LOGIN</button><br>
+        </form>
+        <div>
+            <p>Don't have an account yet?</p>
+            <p id="smallerDevicesSignUp">Sign Up!</p>
+        </div>
+    </div>
+    <div id="containerSignUp">
+        <img src="../assets/harrySignUp.png" alt="">
+        <h2>WELCOME TO HARRY'S HOUSE</h2>
+        <form action="#">
+            <input id="usernameInputSignUp" id="usernameInput" type="text" placeholder="Username" required><br>
+            <input id="emailInputSignUp" id="emailInput" type="text" placeholder="Email" required><br>
+            <input id="passwordInputSignUp" type="password" placeholder="Password" required><br>
+            <div id="validationMessage"></div>
+            <button id="signUpBtn">SIGN UP</button><br>
+        </form>
+        <div>
+            <p>Already have an account?</p>
+            <p id="smallerDevicesLogIn">Log In!</p>
+        </div>
+    </div>
+    <script type="module" src="../script/login.js"></script>
+</body>
+</html>
