@@ -29,7 +29,7 @@ header p:not(#mainTitle){
 header{
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 8em 8em;
+    grid-template-columns: 1fr 8em 4em 8em;
 }
 
 #containerTitle{
