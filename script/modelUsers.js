@@ -6,16 +6,18 @@ export class Users {
     code = 0;
     isBlocked = false;
     pageLoad = "";
+    clothLoad = "";
     favorites = []
 
-    constructor(username, email, password, avatar, code, isBlocked, pageLoad, favorites){
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.avatar = avatar;
+    constructor(username, email, password, avatar, code, isBlocked, pageLoad, clothLoad, favorites){
+        this.username = username
+        this.email = email
+        this.password = password
+        this.avatar = avatar
         this.code = code
         this.isBlocked = isBlocked
         this.pageLoad = pageLoad
+        this.clothLoad = clothLoad
         this.favorites = favorites
     }
 }
@@ -30,6 +32,7 @@ if (!usersHarry) {
         code: 1,
         isBlocked: false,
         pageLoad: "",
+        clothLoad: "",
         favorites:[]
         }
     ]
@@ -79,6 +82,7 @@ export function saveUser(username, email, password) {
         0,
         false,
         "",
+        "",
         []
     );
     if (userExists(username, email) === "email"){
@@ -102,8 +106,7 @@ export function isLogged() {
 }
   
 export function getUserLogged() {
-    // return JSON.parse(sessionStorage.getItem("loggedUser"))
-    return JSON.parse(localStorage.getItem("usersHarry"))[0]
+    return JSON.parse(sessionStorage.getItem("loggedUser"))
 }
 
 export function logout() {
@@ -118,7 +121,7 @@ export function editUser(username){
     }
     else {
         const loggedUser = getUserLogged()
-        const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.favorites)
+        const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites)
         const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
         usersHarry[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -135,7 +138,7 @@ export function editEmail(email){
     }
     else {
         const loggedUser = getUserLogged()
-        const updatedUser = new Users(loggedUser.username, email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.favorites)
+        const updatedUser = new Users(loggedUser.username, email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites)
         const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
         usersHarry[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -148,7 +151,7 @@ export function editPassword(oldPassword, newPassword){
     const validationMessagePassword = document.getElementById("validationMessagePassword")
     const loggedUser = getUserLogged()
     if (oldPassword === loggedUser.password){
-        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.favorites)
+        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites)
         const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
         usersHarry[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -182,7 +185,7 @@ export function isUserBlocked(userID){
 export function blockUser(userID){
     const block = true
     const user  = usersHarry.find(user => user.username === userID)
-    const updatedUser = new Users(user.username, user.email, user.password, user.avatar,user.code, block, user.pageLoad, user.favorites)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar,user.code, block, user.pageLoad, user.clothLoad, user.favorites)
     const index  = usersHarry.findIndex(user => user.username === userID)
     usersHarry[index] =  updatedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
@@ -192,7 +195,7 @@ export function blockUser(userID){
 export function unblockUser(userID){
     const block = false
     const user  = usersHarry.find(user => user.username === userID)
-    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.code, block, user.pageLoad, user.favorites)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.code, block, user.pageLoad, user.clothLoad, user.favorites)
     const index  = usersHarry.findIndex(user => user.username === userID)
     usersHarry[index] =  updatedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
@@ -206,10 +209,21 @@ export function exportBlockedUsers(){
 
 export function changePageLoad(pageLoad){
     const loggedUser = getUserLogged()
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, pageLoad, loggedUser.favorites)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, pageLoad, loggedUser.clothLoad, loggedUser.favorites)
     const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
     usersHarry[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+}
+
+export function changeClothLoad(clothLoad){
+    const loggedUser = getUserLogged()
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, clothLoad, loggedUser.favorites)
+    const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+    usersHarry[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
 }
 
 // localStorage.clear()
+// sessionStorage.clear()

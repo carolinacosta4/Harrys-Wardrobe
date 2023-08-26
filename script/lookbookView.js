@@ -14,8 +14,8 @@ function fillContainerBody(){
     let containerBody = document.getElementById("containerBody")
     if (User.getUserLogged().pageLoad == "tops"){
         result = `<div id="grid1">
-        <div><a href="">
-        <img src="../assets/tops/top1.png" alt=""></a></div><div>
+        <div><a>
+        <img src="../assets/tops/top1.png" id="top1" alt=""></a></div><div>
         <img src="../assets/tops/top2.png" alt=""></div><div>
         <img src="../assets/tops/top3.png" alt=""></div><div>
         <img src="../assets/tops/top4.png" alt=""></div><div>
