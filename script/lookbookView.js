@@ -12,6 +12,7 @@ for (let i = 0; i < menu.length; i++) {
 function fillContainerBody(){
     let result = ''
     let containerBody = document.getElementById("containerBody")
+
     if (User.getUserLogged().pageLoad == "tops"){
         result = `<div id="grid1">
         <div><a>
@@ -119,26 +120,35 @@ function fillContainerBody(){
         containerBody.innerHTML = result
     }else{
         result = `<div id="grid1">
-        <div><a href="variety.html">
-        <img src="../assets/outfits/outfit1.jpg" alt=""></a></div><div>
-        <img src="../assets/outfits/outfit2.jpeg" alt=""></div><div>
-        <img src="../assets/outfits/outfit3.jpg" alt=""></div><div>
-        <img src="../assets/outfits/outfit4.jpg" alt=""></div><div>
-        <img src="../assets/outfits/outfit5.jpg" alt=""></div></div>
-        <div id="grid2"><div><a href="spaceboy.html">
-        <img src="../assets/outfits/outfit6.jpg" alt=""></a></div><div>
-        <img src="../assets/outfits/outfit7.jpg" alt=""></div><div>
-        <img src="../assets/outfits/outfit8.jpg" alt=""></div><div>
-        <img src="../assets/outfits/outfit9.jpg" alt=""></div><div>
-        <img src="../assets/outfits/outfit10.jpg" alt=""></div></div>
+        <div>
+        <img id="outfit1" class="outfits" src="../assets/outfits/outfit1.jpg" alt=""></div><div>
+        <img id="outfit2" class="outfits" src="../assets/outfits/outfit2.jpeg" alt=""></div><div>
+        <img id="outfit3" class="outfits" src="../assets/outfits/outfit3.jpg" alt=""></div><div>
+        <img id="outfit4" class="outfits" src="../assets/outfits/outfit4.jpg" alt=""></div><div>
+        <img id="outfit5" class="outfits" src="../assets/outfits/outfit5.jpg" alt=""></div></div>
+        <div id="grid2"><div>
+        <img id="outfit6" class="outfits" src="../assets/outfits/outfit6.jpg" alt=""></div><div>
+        <img id="outfit7" class="outfits" src="../assets/outfits/outfit7.jpg" alt=""></div><div>
+        <img id="outfit8" class="outfits" src="../assets/outfits/outfit8.jpg" alt=""></div><div>
+        <img id="outfit9" class="outfits" src="../assets/outfits/outfit9.jpg" alt=""></div><div>
+        <img id="outfit10" class="outfits" src="../assets/outfits/outfit10.jpg" alt=""></div></div>
         <div id="grid3"><div>
-        <img src="../assets/outfits/outfit11.jpg" alt=""></div><div>
-        <img src="../assets/outfits/outfit12.jpg" alt=""></div><div>
-        <img src="../assets/outfits/outfit13.jpg" alt=""></div><div>
-        <img src="../assets/outfits/outfit14.jpg" alt=""></div><div>
-        <img src="../assets/outfits/outfit15.jpg" alt=""></div></div>`
+        <img id="outfit11" class="outfits" src="../assets/outfits/outfit11.jpg" alt=""></div><div>
+        <img id="outfit12" class="outfits" src="../assets/outfits/outfit12.jpg" alt=""></div><div>
+        <img id="outfit13" class="outfits" src="../assets/outfits/outfit13.jpg" alt=""></div><div>
+        <img id="outfit14" class="outfits" src="../assets/outfits/outfit14.jpg" alt=""></div><div>
+        <img id="outfit15" class="outfits" src="../assets/outfits/outfit15.jpg" alt=""></div></div>`
         containerBody.innerHTML = result
     }
 }
 
 fillContainerBody()
+
+let outfits = document.getElementsByClassName("outfits")
+for (let i = 0; i < outfits.length; i++) {
+    outfits[i].addEventListener("click", function(event) {
+        let clickedItemId = event.target.id
+        User.changeClothLoad(clickedItemId)
+        window.location.href = "../html/variety.html"
+    })
+}
