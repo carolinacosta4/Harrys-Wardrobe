@@ -8,7 +8,7 @@ function navbarView() {
 
     if (User.isLogged()) {
         result += `<p id="mainTitle" onclick="window.location.href = '../index.html'">HARRY'S WARDROBE</p>
-        <a id="outfits" class="menu" href="../html/lookbook.html"><p>LOOKBOOK</p></a>
+        <p id="outfit" class="menu">LOOKBOOK</p>
         <div class="dropdown">
         <button class="dropbtn">MENU</button>
         <div class="dropdown-content">
@@ -16,7 +16,7 @@ function navbarView() {
         <a id="bottoms" class="menu">BOTTOMS</a>
         <a id="outerwear" class="menu">OUTERWEAR</a>
         <a id="shoes" class="menu">SHOES</a>
-        <a id="acessories" class="menu">ACESSORIES</a></div></div>
+        <a id="accessories" class="menu">ACESSORIES</a></div></div>
         <a href="../html/account.html"><p>ACCOUNT</p></a>`
     } else {
         result += `<p id="mainTitle" onclick="window.location.href = '../index.html'">HARRY'S WARDROBE</p>
