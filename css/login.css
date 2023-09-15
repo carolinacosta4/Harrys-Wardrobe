@@ -21,21 +21,20 @@ body{
     font-family: Jost Regular;
     text-align: center;
     background-color: #ECE4D3;
-    color: #242D3E;
-    height: 100vh;
+    height: 96vh;
 }
 
 #containerHarrysHouse,
 #containerLogin,
 #containerSignUp {
     text-align: center;
-    margin: 10px; /* Add some spacing between containers if desired */
+    margin: 10px;
 }
 
 
 #containerHarrysHouse{
     background-color: #ABBD8F;
-    color: #242D3E;
+    color: #ECE4D3;
     width: 30em;
     height: 35em;
     display: grid;
@@ -45,21 +44,23 @@ body{
 }
 
 button:hover:not(#loginBtnHome, #signUpBtnHome){
-    border-color: #D9D2BF;
-    background-color: #D9D2BF;
-    color: #242D3E;
+    border-color: #ECE4D3;
+    color: #ECE4D3;
+    background-color: #ABBD8F;
 }
 
 #loginBtnHome:hover, #signUpBtnHome:hover{
-    background-color: #D9D2BF;
-    color: #242D3E;
+    background-color: #ABBD8F;
+    color: #ECE4D3;
+    border-color: #ECE4D3;
 }
 
 #containerLogin, #containerSignUp{
     background-color: #ABBD8F;
-    width: 25em;
+    width: 30em;
     height: 35em;
     display: none;
+    align-content: center;
 }
 
 #containerLogin img, #containerSignUp img{
@@ -81,7 +82,7 @@ button {
 	border-radius: 10px;
 	border: 1px solid transparent;
 	background-color: #ECE4D3;
-	color: black;
+	color: #ABBD8F;
 	font-size: 20px;
 	width: 10em;
     height: 2em;
@@ -103,26 +104,26 @@ form {
 }
 
 input::placeholder{
-	color: black;
+	color: #ECE4D3;
 }
 
 input::placeholder:focus{
-	color: #ABBD8F;
+	color: #ECE4D3;
 }
 
 input:focus {
-    border-bottom: 2px solid #ABBD8F;
-	color: black;
+    border-bottom: 2px solid #D9D2BF;
+	color: #ECE4D3;
 	outline: none;
 }
 
 input {
 	border: 0px;
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid #ECE4D3;
 	border-radius: 2px;
 	padding: 8px 1px;
 	width: 100%;
-	color: black;
+	color: #ECE4D3;
 	font-family: Jost Regular;
 	font-size: 16px;
 	background: #ABBD8F;
@@ -130,10 +131,6 @@ input {
 
 .error:focus {
 	border-bottom: 2px solid red;
-}
-
-.success:focus {
-	border-bottom: 2px solid green;
 }
 
 .blank:focus {

@@ -56,14 +56,14 @@ function renderPage(){
             result = `<tr><th>Username</th><th>Email</th><th>Role</th><th colspan="3">Actions</th></tr>`
             for(let i = 0; i < users.length; i++){
                 if (users[i].code == 1){
-                    result += `<tr><td class="border">${users[i].username}</td><td class="border">${users[i].email}</td><td class="border">Admin</td><td><button data-bs-toggle="modal" data-bs-target="#editRoleModal" class="edit" id="${users[i].username}">edit</button></td>`
+                    result += `<tr><td class="borderTable">${users[i].username}</td><td class="borderTable">${users[i].email}</td><td class="borderTable">Admin</td><td><button data-bs-toggle="modal" data-bs-target="#editRoleModal" class="edit" id="${users[i].username}">edit</button></td>`
                 }else{
-                    result += `<tr><td class="border">${users[i].username}</td><td class="border">${users[i].email}</td><td class="border">User</td><td><button data-bs-toggle="modal" data-bs-target="#editRoleModal" class="edit" id="${users[i].username}">edit</button></td>`
+                    result += `<tr><td class="borderTable">${users[i].username}</td><td class="borderTable">${users[i].email}</td><td class="borderTable">User</td><td><button data-bs-toggle="modal" data-bs-target="#editRoleModal" class="edit" id="${users[i].username}">edit</button></td>`
                 }
                 if (User.isUserBlocked(users[i].username)){
-                    result += `<td><button class="unblock" id="${users[i].username}">unblock</button></td><td><button class="remove" id="${users[i].username}">remove</button></td></tr>`
+                    result += `<td><button class="unblock" id="${users[i].username}">unblock</button></td><td><button data-bs-toggle="modal" data-bs-target="#removeUserModal" class="remove" id="${users[i].username}">remove</button></td></tr>`
                 }else{
-                    result += `<td><button class="block" id="${users[i].username}">block</button></td><td><button class="remove" id="${users[i].username}">remove</button></td></tr>`
+                    result += `<td><button class="block" id="${users[i].username}">block</button></td><td><button data-bs-toggle="modal" data-bs-target="#removeUserModal" class="remove" id="${users[i].username}">remove</button></td></tr>`
                 }
             }
 
@@ -107,10 +107,10 @@ function renderPage(){
         usersTable.addEventListener("click", (e) => {
             if (e.target.classList.contains("remove")){
                 const userID = e.target.id
-                if (confirm("Deseja remover o utilizador?")){
+                document.getElementById("removeUserForm").addEventListener("submit", () => {
                     User.removeUser(userID)
                     renderTable(users)
-                }
+                })
             }
         })
     }

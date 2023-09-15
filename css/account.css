@@ -5,8 +5,12 @@ body{
     font-family: Jost Regular;
 }
 
-p, .dropbtn{
+p:not(#removeUserP), .dropbtn{
     color: #ECE4D3 !important; 
+}
+
+#removeUserP{
+    color: #594C40;
 }
 
 #pfp{
@@ -44,11 +48,19 @@ input[type="text"]:focus, input[type="password"]:focus{
     outline: none;
 }
 
-.modal-body{
+.modal-body:not(#removeUserPModal){
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+#removeUserPModal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
 }
 
 .header{
@@ -154,9 +166,16 @@ input[type=radio]:checked + label {
     color: #ABBD8F;
 }
 
-#usersTable tr, #usersTable th, .border{
-    border: 1px solid;
+#usersTable tr, #usersTable th, .borderTable{
+    border: 1px solid #594C40;
     text-align: center;
+    border-radius: 10px;
+}
+
+#usersTable{
+    background-color: #ECE4D3;
+    border-radius: 10px;
+    color: #594C40;
 }
 
 .dropdown-content {
@@ -171,7 +190,7 @@ input[type=radio]:checked + label {
     background-color: #ECE4D3 !important;
 }
 
-form input[type="submit"]{
+form input[type="submit"], .cancel{
     background-color: #594C40;
     color: #ECE4D3;
     margin-top: 10px;
