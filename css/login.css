@@ -16,18 +16,27 @@
 body{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     font-family: Jost Regular;
     text-align: center;
+    background-color: #ECE4D3;
+    color: #242D3E;
     height: 100vh;
-	margin: -20px 0 50px;
-    background-color: bisque;
 }
 
+#containerHarrysHouse,
+#containerLogin,
+#containerSignUp {
+    text-align: center;
+    margin: 10px; /* Add some spacing between containers if desired */
+}
+
+
 #containerHarrysHouse{
-    background: url(../assets/harrysHouseBg.jpg) center;
-    background-size: 48em 35em;
-    width: 25em;
+    background-color: #ABBD8F;
+    color: #242D3E;
+    width: 30em;
     height: 35em;
     display: grid;
     justify-content: center;
@@ -36,18 +45,18 @@ body{
 }
 
 button:hover:not(#loginBtnHome, #signUpBtnHome){
-    border-color: bisque;
-    background-color: #fff4e6;
-    color: black;
+    border-color: #D9D2BF;
+    background-color: #D9D2BF;
+    color: #242D3E;
 }
 
 #loginBtnHome:hover, #signUpBtnHome:hover{
-    background-color: #fff4e6;
-    color: black;
+    background-color: #D9D2BF;
+    color: #242D3E;
 }
 
 #containerLogin, #containerSignUp{
-    background-color: #fff4e6;
+    background-color: #ABBD8F;
     width: 25em;
     height: 35em;
     display: none;
@@ -71,7 +80,7 @@ div p {
 button {
 	border-radius: 10px;
 	border: 1px solid transparent;
-	background-color: bisque;
+	background-color: #ECE4D3;
 	color: black;
 	font-size: 20px;
 	width: 10em;
@@ -98,11 +107,11 @@ input::placeholder{
 }
 
 input::placeholder:focus{
-	color: #fff4e6;
+	color: #ABBD8F;
 }
 
 input:focus {
-    border-bottom: 2px solid bisque;
+    border-bottom: 2px solid #ABBD8F;
 	color: black;
 	outline: none;
 }
@@ -116,7 +125,7 @@ input {
 	color: black;
 	font-family: Jost Regular;
 	font-size: 16px;
-	background: #fff4e6;
+	background: #ABBD8F;
 }
 
 .error:focus {
@@ -135,9 +144,8 @@ input {
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
-	width: 768px;
 }
 
 h1, h2{
-    font-weight: 400;
+    font-weight: 800;
 }

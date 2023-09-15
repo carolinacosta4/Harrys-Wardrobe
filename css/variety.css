@@ -1,3 +1,12 @@
+body{
+   background-color: #242D3E; 
+   color: #ECE4D3;
+}
+
+p, .dropbtn{
+   color: #ECE4D3; 
+}
+
 #outfitColar{
     width: 4em;
     height: 4em;
@@ -5,7 +14,7 @@
 
 #bodyContainer{
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 4fr 2em 1fr;
     font-family: Jost Regular;
     justify-content: center;
 }
@@ -18,10 +27,17 @@
     margin: 0;
 }
 
+i{
+    color: #ABBD8F;
+}
+
+img{
+    border-radius: 4px;
+}
+
 #containerOutfits{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    row-gap: 1em;
     justify-content: center;
 }
 
@@ -74,4 +90,16 @@
 
 #imageModal{
     align-items: center;
+}
+
+.dropdown-content {
+    background-color: #242D3E;
+}
+
+.dropdown-content a {
+    color: #ECE4D3;
+}
+
+.dropdown-content a:hover {
+    background-color: #ABBD8F;
 }

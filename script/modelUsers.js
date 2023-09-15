@@ -28,7 +28,7 @@ if (!usersHarry) {
         {username:"admin",
         email:"admin@email.com",
         password:"123",
-        avatar:"../assets/imgs/avatar1.png",
+        avatar:"../assets/avatar1.jpg",
         code: 1,
         isBlocked: false,
         pageLoad: "",
@@ -78,7 +78,7 @@ export function saveUser(username, email, password) {
         username,
         email,
         password,
-        "../assets/imgs/avatar1.png",
+        "../assets/avatar1.jpg",
         0,
         false,
         "",
@@ -189,7 +189,6 @@ export function blockUser(userID){
     const index  = usersHarry.findIndex(user => user.username === userID)
     usersHarry[index] =  updatedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
-    location.reload()
 }
 
 export function unblockUser(userID){
@@ -199,7 +198,6 @@ export function unblockUser(userID){
     const index  = usersHarry.findIndex(user => user.username === userID)
     usersHarry[index] =  updatedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
-    location.reload()
 }
 
 export function exportBlockedUsers(){
@@ -222,6 +220,47 @@ export function changeClothLoad(clothLoad){
     const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
     usersHarry[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+}
+
+export function addFavorite(clothID){
+    const loggedUser = getUserLogged()
+    let favorites = loggedUser.favorites
+    favorites.push(clothID)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, favorites)
+    const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+    usersHarry[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+}
+
+export function deleteFavorite(clothID){
+    const loggedUser = getUserLogged()
+    let favorites = loggedUser.favorites
+    let indexRem = favorites.indexOf(clothID)
+    favorites.splice(indexRem, 1)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, favorites)
+    const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+    usersHarry[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+}
+
+export function editAvatar(selectedAvatar){
+    const loggedUser = getUserLogged()
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, selectedAvatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites)
+    const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+    usersHarry[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+    location.reload()
+}
+
+export function editCode(userID, newCode){
+    const user  = usersHarry.find(user => user.username === userID)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, newCode, user.block, user.pageLoad, user.clothLoad, user.favorites)
+    const index  = usersHarry.findIndex(user => user.username === userID)
+    usersHarry[index] =  updatedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
 }
 

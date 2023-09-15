@@ -1,3 +1,22 @@
+@font-face {
+    font-family: Anton Regular;
+    src: url("../assets/Anton-Regular.ttf");
+}
+
+@font-face {
+    font-family: Jost Medium;
+    src: url("../assets/Jost-Medium.ttf");
+}
+
+@font-face {
+    font-family: Jost Regular;
+    src: url("../assets/Jost-Regular.ttf");
+}
+
+body{
+    background-color: #D9D2BF;
+}
+
 #containerBody{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -14,8 +33,17 @@
 img{
     width: 10em;
     height: 10em;
+    border-radius: 4px;
 }
 
 #grid1 div, #grid2 div, #grid3 div{
     width: 10em;
+}
+
+.dropdown-content {
+    background-color: #D9D2BF;
+}
+
+.dropdown-content a:hover {
+    background-color: #ECE4D3;
 }

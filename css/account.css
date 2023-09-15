@@ -1,0 +1,202 @@
+body{
+    background-color: #594C40 !important;
+    color: #ECE4D3 !important;
+    margin: 8px !important;
+    font-family: Jost Regular;
+}
+
+p, .dropbtn{
+    color: #ECE4D3 !important; 
+}
+
+#pfp{
+    border-radius: 50%;
+    width: 10em;
+}
+
+#saveNewAvatar, #saveNewPassword, #saveNewEmail, #saveNewUser{
+    background-color: #594C40;
+    color: #ECE4D3;
+    margin-top: 10px;
+}
+
+#saveNewAvatar:hover, #saveNewPassword:hover, #saveNewEmail:hover, #saveNewUser:hover, #btnEdit:hover, #btnFavs:hover, #btnManage:hover, #btnLogout:hover{
+    background-color: #ABBD8F;
+}
+
+input[type="text"], input[type="password"]{
+    border: 0;
+    border-bottom: 2px solid #594C40;
+    border-radius: 2px;
+    background-color: #ECE4D3;
+    padding: 8px 1px;
+    margin: 8px 0;
+    color: #ABBD8F;
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder{
+    color: #594C40;
+}
+    
+input[type="text"]:focus, input[type="password"]:focus{
+    border-bottom: 2px solid #ABBD8F;
+    color: #594C40;
+    outline: none;
+}
+
+.modal-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header{
+    text-align: right;
+    margin: 10px;
+}
+
+button{
+    border: 0;
+    border-radius: 4px !important;
+    background-color: #ECE4D3;
+    color: #594C40;
+    font-family: Jost Regular !important;
+}
+
+#profile{
+    display: grid;
+    grid-template-rows: 4fr 2fr 1fr;
+    justify-content: center;
+    text-align: center;
+}
+
+#btnEdit, #btnLogout, #btnFavs, #btnManage, .edit, .block, .unblock, .remove{
+    width: 6em;
+    height: 2em;
+}
+
+#btnFavs{
+    display: none;
+}
+
+h1{
+    font-family: Jost Medium;
+}
+
+h2{
+    font-family: Jost Regular;
+}
+
+#editProfile, #manageUsers{
+    display: none;
+}
+
+#favorites{
+    display: block;
+}
+
+.cloth{
+    width: 10em;
+    border-radius: 4px;
+}
+
+#gridFavorites{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 1em;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+input[type=radio] + label {
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+    display: inline-block;
+    padding: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+input[type=radio]:checked + label {
+    border-color: #ABBD8F;
+}
+
+#editAvatar, #editPassword{
+    display: grid;
+    grid-template-columns: 16em 2em;
+    align-items: center;
+}
+
+#editEmail, #editUser{
+    display: grid;
+    grid-template-columns: 6em 10em 2em;
+    align-items: center;
+}
+
+.modal-content{
+    background-color: #ECE4D3 !important;
+}
+
+.close{
+    color: #594C40;
+}
+
+.editIcon{
+    color: #ECE4D3;
+}
+
+.close:hover, .editIcon:hover{
+    color: #ABBD8F;
+}
+
+#usersTable tr, #usersTable th, .border{
+    border: 1px solid;
+    text-align: center;
+}
+
+.dropdown-content {
+    background-color: #594C40 !important;
+}
+
+.dropdown-content a {
+    color: black !important;
+}
+
+.dropdown-content a:hover {
+    background-color: #ECE4D3 !important;
+}
+
+form input[type="submit"]{
+    background-color: #594C40;
+    color: #ECE4D3;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 4px !important;
+    font-family: Jost Regular !important;
+}
+
+form input[type="submit"]:hover{
+    background-color: #ABBD8F;
+}
+
+select{
+    border: 0;
+    border-radius: 2px;
+    background-color: #ECE4D3;
+    padding: 8px 1px;
+    margin: 8px 0;
+    color: #ABBD8F;
+}
+    
+select:focus{
+    outline: none;
+}
+
+table{
+    width: 40em;
+}

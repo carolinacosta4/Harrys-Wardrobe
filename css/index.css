@@ -14,22 +14,34 @@
 }
 
 body{
-    background: #E5FCFF;
+    background-color: #ECE4D3;
+    color: #242D3E;
 }
+
+p, .dropbtn{
+    color: #242D3E; 
+ }
 
 header #mainTitle{
     font-family: Jost Medium;
+    font-size: 22px;
 }
 
 header p:not(#mainTitle){
     font-family: Jost Regular;
-    text-align: center;
 }
 
 header{
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 8em 4em 8em;
+    grid-template-columns: 12em 1fr 12em;
+    align-items: center;
+    text-align: center;
+}
+
+#firstOptions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 #containerTitle{
@@ -40,10 +52,16 @@ header{
 
 #title1, #title2{
     font-family: Anton Regular;
+    color: #242D3E;
+}
+
+p:not(#title1, #title2, #title3){
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
 }
 
 a{
-    text-decoration: none;
+    text-decoration: none !important;
     color: #000;
 }
 
@@ -63,10 +81,13 @@ a{
 }
 
 #img1 {
-    width: 110%;
+    width: 60%;
     z-index: -2;
 }
 
+#background{
+    text-align: center;
+}
 
 #containerDescription{
     text-align: end;
@@ -77,6 +98,7 @@ a{
 #containerDescription p{
     font-family: Jost Regular;
     font-size: 14px;
+    color: #594C40;
 }
 
 .dropbtn {
@@ -85,7 +107,7 @@ a{
     font-size: 16px;
     border: none;
     font-family: Jost Regular;
-    background-color: #E5FCFF;
+    background-color: transparent;
 }
   
 .dropdown {
@@ -98,7 +120,7 @@ a{
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #fff;
+    background-color: #ECE4D3;
     min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -113,7 +135,7 @@ a{
 }
   
 .dropdown-content a:hover {
-    background-color: #E5FCFF;
+    background-color: #D9D2BF;
     font-weight: bold;
 }
   
