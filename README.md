@@ -1,7 +1,7 @@
 ![Generic badge](https://img.shields.io/badge/status-in%20progress-827397)
 
 <div align="center">
-<p>HARRY'S HOUSE</p>
+<b>HARRY'S CLOSET</b>
 </div>
 
 <hr>
