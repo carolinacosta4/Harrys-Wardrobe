@@ -1,5 +1,5 @@
-import * as User from "./modelUsers.js"
-import * as Cloth from "./modelOutfits.js"
+import * as User from "../Models/modelUsers.js"
+import * as Cloth from "../Models/modelOutfits.js"
 
 let menu = document.getElementsByClassName("menu")
 for (let i = 0; i < menu.length; i++) {

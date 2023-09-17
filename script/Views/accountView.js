@@ -1,4 +1,4 @@
-import * as User from "../script/modelUsers.js"
+import * as User from "../Models/modelUsers.js"
 
 let body = document.getElementById("body")
 function renderPage(){

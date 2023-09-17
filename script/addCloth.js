@@ -1,4 +1,4 @@
-import * as Cloth from "./modelOutfits.js"
+import * as Cloth from "./Models/modelOutfits.js"
 
 document.getElementById("addClothForm").addEventListener("submit", () => {
     let idCloth = document.getElementById("idCloth").value

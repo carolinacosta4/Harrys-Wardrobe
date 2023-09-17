@@ -1,4 +1,4 @@
-import * as User from "./modelUsers.js"
+import * as User from "../Models/modelUsers.js"
 
 
 function fillBodyContainer(){
