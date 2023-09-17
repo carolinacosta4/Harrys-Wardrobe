@@ -49,11 +49,19 @@ Welcome to Harry Styles' Style Hub, your ultimate destination for all things rel
 
 <b>Explore His Wardrobe</b>: Dive into a curated collection of Harry Styles' outfits, categorized by tops, bottoms, outerwear, shoes, and accessories.
 
+![image](https://github.com/carolinacosta4/Harrys-Wardrobe/assets/115319284/db759ede-c06a-4be4-9e22-7849820fa628)
+
 <b>Price Information</b>: Discover the cost of each clothing item featured in Harry's looks, making it easier to replicate his style.
+
+![image](https://github.com/carolinacosta4/Harrys-Wardrobe/assets/outfit/outfit1each.png)
 
 <b>Versatile Occasions</b>: See how Harry Styles effortlessly rocks each outfit in various occasions and settings.
 
+![image](https://github.com/carolinacosta4/Harrys-Wardrobe/assets/115319284/7623fef1-8a86-433a-86fc-fdc0d7a55e8c) 
+
 <b>Personal Favorites</b>: Create your profile, save your favorite outfits, and tailor your style inspiration to your liking.
+
+![image](https://github.com/carolinacosta4/Harrys-Wardrobe/assets/115319284/6f219f15-2eff-4c03-93c8-1d97730873b8)
 
 Join us on this fashionable journey as we unravel the style secrets of Harry Styles, and let his iconic fashion choices inspire your own wardrobe.
 
@@ -81,3 +89,18 @@ Start the development server:
     # OR
     yarn start
 Open your web browser and visit http://localhost:3000 to access the Harry's Closet website locally.
+
+## Demo Link:
+
+You can explore a live demo of Harry's Closet by visiting [here](https://harrys-wardrobe.netlify.app/).
+
+## Known Limitations:
+
+Mobile responsiveness is a work in progress.
+
+## Roadmap:
+
+We have exciting plans for the future of Harry's Closet, including:
+
+<b>Expanding the database of outfits and their associated prices.</b>
+<b>Enhancing mobile responsiveness for a seamless experience on all devices.</b>
