@@ -1,4 +1,5 @@
 import * as User from "./modelUsers.js"
+import * as Cloth from "./modelOutfits.js"
 
 let menu = document.getElementsByClassName("menu")
 for (let i = 0; i < menu.length; i++) {
@@ -9,55 +10,56 @@ for (let i = 0; i < menu.length; i++) {
     })
 }
 
-function fillContainerBody(){
-    let result = ''
+function fillContainerBody() {
     let containerBody = document.getElementById("containerBody")
     let arrayCloth = []
     let clothClass = User.getUserLogged().pageLoad
     let cloth = Cloth.getCloth()
-    console.log(clothClass)
-    for (let i = 0; cloth.length > i; i++){
-        if(cloth[i].clothClass == clothClass){
-            arrayCloth.push(cloth[i])
-            console.log(arrayCloth)
-        }
+  
+    for (let i = 0; cloth.length > i; i++) {
+      if (cloth[i].clothClass == clothClass) {
+        arrayCloth.push(cloth[i])
+      }
     }
-
+  
     const itemsPerPage = 15
     const totalItems = arrayCloth.length
     const totalPages = Math.ceil(totalItems / itemsPerPage)
-    console.log(totalItems)
-    console.log(totalPages)
-    
-    for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++){
-        result += `<div id="grid">`
-        for(let i = 0; arrayCloth.length > i; i++){
-            result += `<div><img id="${arrayCloth[i].id}" class="cloth" src="${arrayCloth[i].src}"></div>`
-        }
-        result += `</div>`
+  
+    containerBody.innerHTML = ""
+  
+    for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
+      let result = `<div id="grid${pageNumber}" class="page" style="display: none;">`
+      const startIndex = (pageNumber - 1) * itemsPerPage
+      const endIndex = Math.min(startIndex + itemsPerPage, totalItems)
+  
+      for (let i = startIndex; i < endIndex; i++) {
+        result += `<div><img id="${arrayCloth[i].id}" class="cloth" src="${arrayCloth[i].src}"></div>`
+      }
+  
+      result += `</div>`
+      containerBody.insertAdjacentHTML("beforeend", result)
     }
-
-    containerBody.innerHTML = result
-
-    let pageNavigation = '<table><tr>'
+  
+    let pageNavigation = '<table id="pageNumbers"><tr>'
     for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
       pageNavigation += `<td><a href="#" onclick="showPage(${pageNumber})">${pageNumber}</a></td>`
     }
     pageNavigation += '</tr></table>'
   
-    containerBody.insertAdjacentHTML('afterend', pageNavigation)
+    containerBody.insertAdjacentHTML("afterend", pageNavigation)
   
-    // window.showPage = function(pageNumber) {
-    //   const pages = document.querySelectorAll('.page')
-    //   pages.forEach((page) => {
-    //     page.style.display = 'none'
-    //   });
-    //   document.getElementById(`grid${pageNumber}`).style.display = 'block'
-    // };
-    
-    // showPage(1)
+    window.showPage = function (pageNumber) {
+      const pages = document.querySelectorAll('.page')
+      pages.forEach((page) => {
+        page.style.display = 'none'
+      })
+      document.getElementById(`grid${pageNumber}`).style.display = 'grid'
+    }
+  
+    showPage(1)
 }
-
+  
 fillContainerBody()
 
 let cloth = document.getElementsByClassName("cloth")
