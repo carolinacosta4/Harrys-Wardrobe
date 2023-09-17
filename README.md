@@ -53,7 +53,7 @@ Welcome to Harry Styles' Style Hub, your ultimate destination for all things rel
 
 <b>Price Information</b>: Discover the cost of each clothing item featured in Harry's looks, making it easier to replicate his style.
 
-![image](https://github.com/carolinacosta4/Harrys-Wardrobe/assets/outfit/outfit1each.png)
+![outfit1each](https://github.com/carolinacosta4/Harrys-Wardrobe/assets/115319284/09524b9c-5395-4b7d-9986-6fc686e7624e)
 
 <b>Versatile Occasions</b>: See how Harry Styles effortlessly rocks each outfit in various occasions and settings.
 
@@ -102,5 +102,5 @@ Mobile responsiveness is a work in progress.
 
 We have exciting plans for the future of Harry's Closet, including:
 
-<b>Expanding the database of outfits and their associated prices.</b>
+<b>Expanding the database of outfits and their associated prices.</b><br>
 <b>Enhancing mobile responsiveness for a seamless experience on all devices.</b>
