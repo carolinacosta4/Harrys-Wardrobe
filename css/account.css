@@ -24,7 +24,7 @@ p:not(#removeUserP), .dropbtn{
     margin-top: 10px;
 }
 
-#saveNewAvatar:hover, #saveNewPassword:hover, #saveNewEmail:hover, #saveNewUser:hover, #btnEdit:hover, #btnFavs:hover, #btnManage:hover, #btnLogout:hover{
+#saveNewAvatar:hover, #saveNewPassword:hover, #saveNewEmail:hover, #saveNewUser:hover, #btnEdit:hover, #btnFavs:hover, #btnManage:hover, #btnLogout:hover, #btnAddOutfit:hover{
     background-color: #ABBD8F;
 }
 
@@ -83,7 +83,7 @@ button{
     text-align: center;
 }
 
-#btnEdit, #btnLogout, #btnFavs, #btnManage, .edit, .block, .unblock, .remove{
+#btnEdit, #btnLogout, #btnFavs, #btnManage, .edit, .block, .unblock, .remove, #btnAddOutfit{
     width: 6em;
     height: 2em;
 }

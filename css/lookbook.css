@@ -19,8 +19,6 @@ body{
 
 #containerBody{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    row-gap: 1em;
     justify-content: center;
 }
 
@@ -28,6 +26,7 @@ body{
     display: grid;
     grid-template-columns: 10em 10em 10em 10em 1fr;
     column-gap: 1em;
+    row-gap: 1em;
 }
 
 img{

@@ -30,6 +30,7 @@ function renderPage(){
         <button id="btnEdit">Edit profile</button>
         <button id="btnFavs">Favorites</button>
         <button id="btnManage">Manage</button>
+        <button id="btnAddOutfit" data-bs-toggle="modal" data-bs-target="#addClothModal">Add cloth</button>
         <button id="btnLogout">LOGOUT</button></div></div>
         <div id="favorites"><h2>Favorites</h2></div>
         <div id="editProfile"><h2>Edit profile</h2>
