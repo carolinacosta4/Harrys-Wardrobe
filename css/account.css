@@ -55,7 +55,7 @@ input[type="text"]:focus, input[type="password"]:focus{
     text-align: center;
 }
 
-#removeUserPModal{
+#removeUserPModal, #addClothForm{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,11 +183,12 @@ input[type=radio]:checked + label {
 }
 
 .dropdown-content a {
-    color: black !important;
+    color: #ECE4D3 !important;
 }
 
 .dropdown-content a:hover {
     background-color: #ECE4D3 !important;
+    color: #594C40 !important;
 }
 
 form input[type="submit"], .cancel{

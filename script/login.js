@@ -61,11 +61,10 @@ document.getElementById("loginBtn").addEventListener("click", function(event){
 		const message = document.getElementById("validationMessageLogIn")
         message.textContent = "Please, fill all the fields."
 		message.style.color = "red"
-	}
-	else if (User.checkLogin(usernameToValidate, passwordToValidate)) {
+	}else if (User.checkLogin(usernameToValidate, passwordToValidate)){
         User.login(usernameToValidate, passwordToValidate)
     } else {
-		const message = document.getElementById("validationMessageLogIn");
+		const message = document.getElementById("validationMessageLogIn")
         message.textContent = "Log in failed. Try again."
 		message.style.color = "red"
     }

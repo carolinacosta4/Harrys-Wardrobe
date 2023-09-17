@@ -97,9 +97,10 @@ img{
 }
 
 .dropdown-content a {
-    color: #ECE4D3;
+    color: #ECE4D3 !important;
 }
 
 .dropdown-content a:hover {
     background-color: #ABBD8F;
+    color: #242D3E !important;
 }

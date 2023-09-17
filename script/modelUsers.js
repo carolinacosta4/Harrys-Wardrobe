@@ -22,28 +22,11 @@ export class Users {
     }
 }
 
-let usersHarry = localStorage.getItem("usersHarry"); 
-if (!usersHarry) {
-    usersHarry = [
-        {username:"admin",
-        email:"admin@email.com",
-        password:"123",
-        avatar:"../assets/avatar1.jpg",
-        code: 1,
-        isBlocked: false,
-        pageLoad: "",
-        clothLoad: "",
-        favorites:[]
-        }
-    ]
-    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
-} else {
-  	usersHarry = JSON.parse(usersHarry);
+export function initUsers(){
+    usersHarry = localStorage.usersHarry ? JSON.parse(localStorage.usersHarry) : []
 }
 
-export function initUsers(){
-    usersHarry = localStorage.usersHarry ? JSON.parse(localStorage.usersHarry) : [];
-}
+let usersHarry = localStorage.usersHarry ? JSON.parse(localStorage.usersHarry) : []
 
 export function userExists(username, email) {
     if (usersHarry.some(user => user.email === email)){
@@ -68,7 +51,7 @@ export function login(usernameToValidate, passwordToValidate){
         validationMessage.style.color = "red"
     }else{
         sessionStorage.setItem("loggedUser", JSON.stringify(user))
-        let usersstr = JSON.stringify(usersHarry);
+        let usersstr = JSON.stringify(usersHarry)
         window.location.href = "../index.html"
     }
 }
@@ -84,20 +67,20 @@ export function saveUser(username, email, password) {
         "",
         "",
         []
-    );
+    )
     if (userExists(username, email) === "email"){
-        validationMessage.textContent = "Email already in use. Try another one!";
-        validationMessage.style.color = "red";
+        validationMessage.textContent = "Email already in use. Try another one!"
+        validationMessage.style.color = "red"
     }
     else if (userExists(username, email) === "username"){
-        validationMessage.textContent = "This username already exists. Try another one!";
-        validationMessage.style.color = "red";
+        validationMessage.textContent = "This username already exists. Try another one!"
+        validationMessage.style.color = "red"
     }
     else {
-        usersHarry.push(newUser);
-        localStorage.setItem("usersHarry", JSON.stringify(usersHarry));
-        validationMessage.textContent = "User successfully created!";
-        validationMessage.style.color = "green";
+        usersHarry.push(newUser)
+        localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+        validationMessage.textContent = "User successfully created!"
+        validationMessage.style.color = "green"
     }   
 }
 
@@ -110,14 +93,14 @@ export function getUserLogged() {
 }
 
 export function logout() {
-    sessionStorage.removeItem("loggedUser");
+    sessionStorage.removeItem("loggedUser")
 }
 
 export function editUser(username){
-    const validationMessageUser = document.getElementById("validationMessageUser");
+    const validationMessageUser = document.getElementById("validationMessageUser")
     if (usersHarry.some(user => user.username === username)){
-        validationMessageUser.textContent = "This username already exists. Try another one!";
-        validationMessageUser.style.color = "red";
+        validationMessageUser.textContent = "This username already exists. Try another one!"
+        validationMessageUser.style.color = "red"
     }
     else {
         const loggedUser = getUserLogged()
@@ -131,10 +114,10 @@ export function editUser(username){
 }
 
 export function editEmail(email){
-    const validationMessageEmail = document.getElementById("validationMessageEmail");
+    const validationMessageEmail = document.getElementById("validationMessageEmail")
     if (usersHarry.some(user => user.email === email)){
-        validationMessageEmail.textContent = "Email already in use. Try another one!";
-        validationMessageEmail.style.color = "red";
+        validationMessageEmail.textContent = "Email already in use. Try another one!"
+        validationMessageEmail.style.color = "red"
     }
     else {
         const loggedUser = getUserLogged()
