@@ -56,3 +56,28 @@ Welcome to Harry Styles' Style Hub, your ultimate destination for all things rel
 <b>Personal Favorites</b>: Create your profile, save your favorite outfits, and tailor your style inspiration to your liking.
 
 Join us on this fashionable journey as we unravel the style secrets of Harry Styles, and let his iconic fashion choices inspire your own wardrobe.
+
+## Installation Instructions:
+
+To get started with Harry's Closet, follow these steps:
+
+Clone the repository to your local machine:
+
+    git clone https://github.com/yourusername/harrys-closet.git
+
+Navigate to the project directory:
+
+    cd harrys-closet
+    
+Install the required dependencies using npm or yarn:
+
+    npm install
+    # OR
+    yarn install
+
+Start the development server:
+
+    npm start
+    # OR
+    yarn start
+Open your web browser and visit http://localhost:3000 to access the Harry's Closet website locally.
