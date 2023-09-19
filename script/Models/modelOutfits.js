@@ -10,7 +10,8 @@ export class Cloth {
     }
 }
 
-let cloth = localStorage.getItem("cloth")
+let cloth = localStorage.cloth ? JSON.parse(localStorage.cloth) : []
+
 
 export function initCloth(){
     cloth = localStorage.cloth ? JSON.parse(localStorage.cloth) : [];
