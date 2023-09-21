@@ -32,18 +32,14 @@ function navbarView() {
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav2">
         <a href="../html/account.html"><p id="account">ACCOUNT</p></a></div></div></nav>`
     } else {
-        result += `<div class="row"><div class="col-md-2"></div>
-        <p class="col-md-8" id="mainTitle" onclick="window.location.href = '../index.html'">HARRY'S WARDROBE</p>
-        <a class="col-md-2" href="../html/login.html">
-        <p>LOGIN</p></a></div>`
+        result += `<div class="row headerRow"><div class="col-md-2"></div>
+        <p class="col-md-8 col-10" id="mainTitle" onclick="window.location.href = '../index.html'">HARRY'S WARDROBE</p>
+        <div class="col-md-2 col-2"><nav class="navbar navbar-expand-lg d-flex justify-content-center">
+        <button class="navbar-toggler" id="logBtn" type="button" onclick="window.location.href = '../html/login.html'">
+        <i class="fa-solid fa-user"></i></button><div class="collapse navbar-collapse justify-content-center">
+        <a href="../html/login.html"><p>LOGIN</p></a></div></nav></div></div>`
     }
-
-    // <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation" id="burguerMenu">
-    //               <img src="../../assets/imgs/burguer.png" alt="icon" id="burguer"></button><div class="collapse navbar-collapse justify-content-end" id="navbarNav1"><ul class="navbar-nav">
-    //               <li class="nav-item"><input type="button" value="Rules" class="nav-link" id="rulesBtn" onclick="window.location.href = '../../html/rules.html'"></li><li class="nav-item">
-    //               <input type="button" value="About us" class="nav-link" id="abtUsBtn" onclick="window.location.href = '../../html/aboutUs.html'"></li></ul></div></nav></div>            
     
-
   document.querySelector("header").innerHTML = result
 }
   
