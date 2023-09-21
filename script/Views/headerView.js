@@ -9,10 +9,10 @@ function navbarView() {
     if (User.isLogged()) {
         result += `<div class="row headerRow"><div class="col-md-2 col-sm-2 col-2" id="firstOptions">
         <nav class="navbar navbar-expand-lg d-flex justify-content-center">
-        <button class="navbar-toggler" id="logBtn" type="button" onclick="window.location.href = '../../html/account.html'">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav1">
         <i class="fa-solid fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav2">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <p id="outfit" class="menu">LOOKBOOK</p>
         <div class="dropdown">
         <button id="menu" class="dropbtn">MENU</button>
@@ -38,18 +38,10 @@ function navbarView() {
         <p>LOGIN</p></a></div>`
     }
 
-    // <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center" id="col3">
-    //                 <button class="navbar-toggler" id="logBtn" type="button" onclick="window.location.href = '../../html/account.html'">
-    //                   <img src="../../assets/imgs/accountIcon.png" alt="icon" id="accountIcon">
-    //                 </button>
-    //                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav2">
-    //                   <ul class="navbar-nav">
-    //                     <li class="nav-item">
-    //                       <input type="button" value="${User.getUserLogged().username}" id="loginBtn" onclick="window.location.href = '../../html/account.html'">
-    //                     </li>
-    //                   </ul>
-    //                 </div>
-    //               </nav>
+    // <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation" id="burguerMenu">
+    //               <img src="../../assets/imgs/burguer.png" alt="icon" id="burguer"></button><div class="collapse navbar-collapse justify-content-end" id="navbarNav1"><ul class="navbar-nav">
+    //               <li class="nav-item"><input type="button" value="Rules" class="nav-link" id="rulesBtn" onclick="window.location.href = '../../html/rules.html'"></li><li class="nav-item">
+    //               <input type="button" value="About us" class="nav-link" id="abtUsBtn" onclick="window.location.href = '../../html/aboutUs.html'"></li></ul></div></nav></div>            
     
 
   document.querySelector("header").innerHTML = result
