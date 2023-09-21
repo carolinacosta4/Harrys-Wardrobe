@@ -1,0 +1,82 @@
+header #mainTitle{
+    font-family: Jost Medium;
+    font-size: 22px;
+}
+
+header p:not(#mainTitle){
+    font-family: Jost Regular;
+}
+
+header{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 12em 1fr 12em;
+    align-items: center;
+    text-align: center;
+}
+
+#firstOptions{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.dropbtn{
+    color: #242D3E; 
+}
+
+.dropbtn {
+    margin-bottom: 16px;
+    margin-top: 16px;
+    font-size: 16px;
+    padding: 0;
+    border: none;
+    font-family: Jost Regular;
+    background-color: transparent;
+}
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    align-content: center;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ECE4D3;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-family: Jost Regular;
+}
+  
+.dropdown-content a {
+    color: #242D3E;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown-content a:hover {
+    background-color: #D9D2BF;
+    font-weight: bold;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+header p:hover, header a:hover{
+    cursor: pointer;
+}
+
+p:not(#title1, #title2, #title3){
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+a:not(#pageNumbers a){
+    text-decoration: none !important;
+    color: #242D3E !important;
+}

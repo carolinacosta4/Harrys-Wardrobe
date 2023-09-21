@@ -14,19 +14,21 @@
 }
 
 body{
-    background-color: #D9D2BF;
+    background-color: #D9D2BF !important;
+    margin: 8px !important;
 }
 
 #containerBody{
-    display: grid;
+    display: flex;
     justify-content: center;
 }
 
 .page{
-    display: grid;
+    /* display: grid;
     grid-template-columns: 10em 10em 10em 10em 1fr;
-    column-gap: 1em;
+    column-gap: 1em; */
     row-gap: 1em;
+    width: 60em;
 }
 
 #pageNumbers{

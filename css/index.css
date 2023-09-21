@@ -14,12 +14,12 @@
 }
 
 body{
-    background-color: #ECE4D3;
-    color: #242D3E;
+    background-color: #ECE4D3 !important;
+    margin: 8px !important;
 }
 
-p, .dropbtn{
-    color: #242D3E; 
+p{
+    color: #242D3E !important; 
  }
 
 header #mainTitle{
@@ -44,39 +44,41 @@ header{
     grid-template-columns: 1fr 1fr;
 }
 
-#containerTitle{
+/* #containerTitle{
     display: grid;
     grid-template-rows: 0.1em 8em 1fr;
     z-index: 1;
+} */
+
+#containerTitle{
+    display: flex;
+    align-items: center;
 }
 
 #title1, #title2{
     font-family: Anton Regular;
-    color: #242D3E;
+    color: #242D3E !important;
+    margin: 0 !important;
 }
 
-p:not(#title1, #title2, #title3){
-    margin-top: 16px !important;
-    margin-bottom: 16px !important;
-}
-
-a:not(#pageNumbers a){
-    text-decoration: none !important;
-    color: #000;
-}
+/* #title2, #title3{
+    margin: 128px 0;
+} */
 
 #title1{
     font-size: 64px;
+    height: 1em;
 }
 
 #title2{
     font-size: 128px;
+    height: 1em;
 }
 
 #bodyWebsite{
-    display: grid;
+    /* display: grid;
     grid-template-columns: 10em 28em 16em;
-    grid-template-rows: 30em;
+    grid-template-rows: 30em; */
     justify-content: center;
 }
 
@@ -98,52 +100,5 @@ a:not(#pageNumbers a){
 #containerDescription p{
     font-family: Jost Regular;
     font-size: 14px;
-    color: #594C40;
-}
-
-.dropbtn {
-    margin-bottom: 16px;
-    margin-top: 16px;
-    font-size: 16px;
-    padding: 0;
-    border: none;
-    font-family: Jost Regular;
-    background-color: transparent;
-}
-  
-.dropdown {
-    position: relative;
-    display: inline-block;
-    align-items: center;
-    align-content: center;
-}
-  
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ECE4D3;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    font-family: Jost Regular;
-}
-  
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-  
-.dropdown-content a:hover {
-    background-color: #D9D2BF;
-    font-weight: bold;
-}
-  
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-header p:hover, header a:hover{
-    cursor: pointer;
+    color: #594C40 !important;
 }

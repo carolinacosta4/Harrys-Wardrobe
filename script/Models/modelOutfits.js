@@ -18,7 +18,6 @@ export function initCloth(){
 }
 
 export function saveCloth(idCloth, clothClass) {
-    console.log(idCloth)
     const newCloth = new Cloth (
         idCloth,
         `../assets/${clothClass}/${idCloth}.png`,

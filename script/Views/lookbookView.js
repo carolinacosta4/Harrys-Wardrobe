@@ -22,19 +22,19 @@ function fillContainerBody() {
       }
     }
   
-    const itemsPerPage = 15
+    const itemsPerPage = 12
     const totalItems = arrayCloth.length
     const totalPages = Math.ceil(totalItems / itemsPerPage)
   
     containerBody.innerHTML = ""
-  
+
     for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
-      let result = `<div id="grid${pageNumber}" class="page" style="display: none;">`
+      let result = `<div id="grid${pageNumber}" class="page row" style="display: none;">`
       const startIndex = (pageNumber - 1) * itemsPerPage
       const endIndex = Math.min(startIndex + itemsPerPage, totalItems)
   
       for (let i = startIndex; i < endIndex; i++) {
-        result += `<div><img id="${arrayCloth[i].id}" class="cloth" src="${arrayCloth[i].src}"></div>`
+        result += `<div class="col-md-3 col-sm-6 col-xs-12"><img id="${arrayCloth[i].id}" class="cloth" src="${arrayCloth[i].src}"></div>`
       }
   
       result += `</div>`
@@ -54,7 +54,7 @@ function fillContainerBody() {
       pages.forEach((page) => {
         page.style.display = 'none'
       })
-      document.getElementById(`grid${pageNumber}`).style.display = 'grid'
+      document.getElementById(`grid${pageNumber}`).style.display = 'flex'
     }
   
     showPage(1)
