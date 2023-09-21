@@ -53,7 +53,7 @@ p{
 }
 
 #title2{
-    font-size: 128px;
+    /* font-size: 128px; */
     height: 1em;
 }
 
@@ -83,4 +83,22 @@ p{
     font-family: Jost Regular;
     font-size: 14px;
     color: #594C40 !important;
+}
+
+@media (min-width: 576px) {
+    #title2, #title3{
+        font-size: 100px;
+    }
+}
+
+@media (max-width: 575px) {
+    #title2, #title3{
+        font-size: 100px;
+    }
+}
+
+@media (min-width: 768px) {
+    #title2, #title3{
+        font-size: 128px;
+    }
 }
