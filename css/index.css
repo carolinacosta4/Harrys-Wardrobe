@@ -55,6 +55,10 @@ header{
     align-items: center;
 }
 
+.titles{
+    text-align: center;
+}
+
 #title1, #title2{
     font-family: Anton Regular;
     color: #242D3E !important;
