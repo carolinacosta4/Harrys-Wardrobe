@@ -22,28 +22,6 @@ p{
     color: #242D3E !important; 
  }
 
-header #mainTitle{
-    font-family: Jost Medium;
-    font-size: 22px;
-}
-
-header p:not(#mainTitle){
-    font-family: Jost Regular;
-}
-
-header{
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 12em 1fr 12em;
-    align-items: center;
-    text-align: center;
-}
-
-#firstOptions{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
 /* #containerTitle{
     display: grid;
     grid-template-rows: 0.1em 8em 1fr;

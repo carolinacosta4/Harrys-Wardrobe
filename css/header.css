@@ -5,19 +5,28 @@ header #mainTitle{
 
 header p:not(#mainTitle){
     font-family: Jost Regular;
+    margin: 16px 16px;
 }
 
 header{
-    display: grid;
+    /* display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 12em 1fr 12em;
+    grid-template-columns: 12em 1fr 12em; */
     align-items: center;
     text-align: center;
 }
-
+/* 
 #firstOptions{
     display: grid;
     grid-template-columns: 1fr 1fr;
+} */
+
+i{
+    color: #242D3E;
+}
+
+button{
+    border: 0;
 }
 
 .dropbtn{
@@ -25,8 +34,7 @@ header{
 }
 
 .dropbtn {
-    margin-bottom: 16px;
-    margin-top: 16px;
+    margin: 16px 0;
     font-size: 16px;
     padding: 0;
     border: none;
@@ -72,11 +80,15 @@ header p:hover, header a:hover{
 }
 
 p:not(#title1, #title2, #title3){
-    margin-top: 16px !important;
-    margin-bottom: 16px !important;
+    margin: 16px 0;
 }
 
 a:not(#pageNumbers a){
     text-decoration: none !important;
     color: #242D3E !important;
+}
+
+.headerRow{
+    display: flex;
+    align-items: center;
 }
