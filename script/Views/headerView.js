@@ -22,9 +22,9 @@ function navbarView() {
         <a id="outerwear" class="menu">OUTERWEAR</a>
         <a id="shoes" class="menu">SHOES</a>
         <a id="accessories" class="menu">ACESSORIES</a></div></div></div></div></nav>
-        <div class="col-md-8 col-sm-8 col-8">
+        <div class="col-md-8 col-sm-8 col-9">
         <p id="mainTitle" onclick="window.location.href = '../index.html'">HARRY'S WARDROBE</p></div>
-        <div class="col-md-2 col-sm-2 col-2">
+        <div class="col-md-2 col-sm-2 col-1">
         <nav class="navbar navbar-expand-lg d-flex justify-content-center">
         <button class="navbar-toggler" id="logBtn" type="button" onclick="window.location.href = '../../html/account.html'">
         <i class="fa-solid fa-user"></i>

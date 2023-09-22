@@ -6,23 +6,23 @@ function fillBodyContainer(){
     let bodyContainer = document.getElementById("bodyContainer")
     let submain = User.getUserLogged().clothLoad
     let main = submain.replace(/\d+$/, '')
-    result = `<div id="containerOutfit"><img src="../assets/${main}/${User.getUserLogged().clothLoad}each.png" id="outfitImg"></div>`
+    result = `<div class="row"><div class="col-md-9 col-sm-10 col-11" id="containerOutfit"><img src="../assets/${main}/${User.getUserLogged().clothLoad}each.png" id="outfitImg"></div>`
     let favorites = User.getUserLogged().favorites
     if (favorites.includes(User.getUserLogged().clothLoad)){
-        result += `<div><i class="fa-solid fa-heart fa-2xl Fav" id="favorite"></i></div>`
+        result += `<div class="col-md-1 col-sm-2 col-1"><i class="fa-solid fa-heart fa-2xl Fav" id="favorite"></i></div>`
     }else{
-        result += `<div><i id="favorite" class="fa-regular fa-heart fa-2xl notFav"></i></div>`
+        result += `<div class="col-md-1 col-sm-2 col-1"><i id="favorite" class="fa-regular fa-heart fa-2xl notFav"></i></div>`
     }
 
 
     
-    result += `<div id="containerOutfits" class="container">
+    result += `<div id="containerOutfits" class="col-md-2 col-sm-12 col-12">
         <img src="../assets/${main}/${User.getUserLogged().clothLoad}closeup.png" class="thumbnail" onclick="openImage('../assets/${User.getUserLogged().pageLoad}/${User.getUserLogged().clothLoad}closeup.png')">
         <img src="../assets/${main}/${User.getUserLogged().clothLoad}closeup2.png" class="thumbnail" onclick="openImage('../assets/${User.getUserLogged().pageLoad}/${User.getUserLogged().clothLoad}closeup2.png')">
         <img src="../assets/${main}/${User.getUserLogged().clothLoad}closeup3.png" class="thumbnail" onclick="openImage('../assets/${User.getUserLogged().pageLoad}/${User.getUserLogged().clothLoad}closeup3.png')"></div>
         <div id="imageModal" class="modal">
         <span class="close" onclick="closeImage()">&times;</span>
-        <img id="modalContent" src="" alt="Modal Image"></div>`
+        <img id="modalContent" src="" alt="Modal Image"></div></div>`
     bodyContainer.innerHTML = result
 }
 

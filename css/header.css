@@ -1,6 +1,6 @@
 header #mainTitle{
     font-family: Jost Medium;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 header p:not(#mainTitle){
@@ -9,17 +9,9 @@ header p:not(#mainTitle){
 }
 
 header{
-    /* display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 12em 1fr 12em; */
     align-items: center;
     text-align: center;
 }
-/* 
-#firstOptions{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-} */
 
 i{
     color: #242D3E;
