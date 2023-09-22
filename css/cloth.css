@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Jost Medium;
+    src: url("../assets/Jost-Medium.ttf");
+}
+
+@font-face {
+    font-family: Jost Regular;
+    src: url("../assets/Jost-Regular.ttf");
+}
+
 body{
    background-color: #242D3E !important; 
    color: #ECE4D3;

@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Jost Medium;
+    src: url("../assets/Jost-Medium.ttf");
+}
+
+@font-face {
+    font-family: Jost Regular;
+    src: url("../assets/Jost-Regular.ttf");
+}
+
 header #mainTitle{
     font-family: Jost Medium;
     font-size: 20px;
