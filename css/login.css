@@ -146,3 +146,14 @@ input {
 h1, h2{
     font-weight: 800;
 }
+
+@media (max-width: 575px) {
+    #containerHarrysHouse, #containerLogin, #containerSignUp{
+        width: 20em;
+        height: 25em;
+    }
+
+    h1{
+        font-size: 26px;
+    }
+}

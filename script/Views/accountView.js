@@ -166,12 +166,12 @@ document.getElementById("saveNewAvatar").addEventListener("click", () => {
 })
 
 const favoritesGrid = document.getElementById("favorites")
-favoritesGrid.innerHTML += `<div id="gridFavorites"></div>`
+favoritesGrid.innerHTML += `<div id="gridFavorites" class="container"><div class="row" id="rowFavorites"></div></div>`
 
 for (let i = 0; User.getUserLogged().favorites.length > i ; i++){
     let submain = User.getUserLogged().favorites[i]
     let main = submain.replace(/\d+$/, '')
-    document.getElementById("gridFavorites").innerHTML += `<img id="${User.getUserLogged().favorites[i]}" class="cloth" src="../assets/${main}/${User.getUserLogged().favorites[i]}.png">`
+    document.getElementById("rowFavorites").innerHTML += `<img id="${User.getUserLogged().favorites[i]}" class="cloth" src="../assets/${main}/${User.getUserLogged().favorites[i]}.png">`
 }
 
 let cloth = document.getElementsByClassName("cloth")

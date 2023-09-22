@@ -109,14 +109,24 @@ h2{
 }
 
 .cloth{
-    width: 10em;
-    border-radius: 4px;
+    width: 10em !important;
+    border-radius: 4px !important;
 }
-
+/* 
 #gridFavorites{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     row-gap: 1em;
+} */
+
+#gridFavorites{
+    padding: 0;
+}
+
+#rowFavorites{
+    row-gap: 1em;
+    --bs-gutter-x: 0;
+    column-gap: 1em;
 }
 
 input[type="radio"]{
@@ -219,4 +229,10 @@ select:focus{
 
 table{
     width: 40em;
+}
+
+@media (max-width: 575px) {
+    #rowFavorites{
+        justify-content: center;
+    }
 }
