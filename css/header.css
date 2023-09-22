@@ -77,7 +77,7 @@ p:not(#title1, #title2, #title3){
 
 a:not(#pageNumbers a){
     text-decoration: none !important;
-    color: #242D3E !important;
+    color: #242D3E;
 }
 
 .headerRow{

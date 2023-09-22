@@ -86,12 +86,16 @@ img{
 }
 
 .dropdown-content a {
-    color: #ECE4D3 !important;
+    color: #ABBD8F !important;
 }
 
 .dropdown-content a:hover {
     background-color: #ABBD8F;
     color: #242D3E !important;
+}
+
+#mainTitle, #account, .menu, #menu{
+    color: #ABBD8F;
 }
 
 @media (min-width: 576px) {

@@ -67,6 +67,6 @@ for (let i = 0; i < cloth.length; i++) {
     cloth[i].addEventListener("click", function(event) {
         let clickedItemId = event.target.id
         User.changeClothLoad(clickedItemId)
-        window.location.href = "../html/variety.html"
+        window.location.href = "../html/cloth.html"
     })
 }
