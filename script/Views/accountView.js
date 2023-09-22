@@ -6,7 +6,7 @@ function renderPage(){
     if (code == 0){
         body.innerHTML = `<div id="profile">
         <div id="info"></div><div>
-        <button id="btnEdit">Edit profile</button>
+        <button id="btnEdit">Edit</button>
         <button id="btnFavs">Favorites</button>
         <button id="btnLogout">LOGOUT</button></div></div>
         <div id="favorites">
@@ -27,7 +27,7 @@ function renderPage(){
         <i data-bs-toggle="modal" data-bs-target="#editPasswordModal" class="fa-solid fa-square-pen fa-2xl editIcon" style="color: #ece4d3;"></i></div></div>`
     }else{
         body.innerHTML = `<div id="profile"><div id="info"></div><div>
-        <button id="btnEdit">Edit profile</button>
+        <button id="btnEdit">Edit</button>
         <button id="btnFavs">Favorites</button>
         <button id="btnManage">Manage</button>
         <button id="btnAddOutfit" data-bs-toggle="modal" data-bs-target="#addClothModal">Add cloth</button>
@@ -179,7 +179,7 @@ for (let i = 0; i < cloth.length; i++) {
     cloth[i].addEventListener("click", function(event) {
         let clickedItemId = event.target.id
         User.changeClothLoad(clickedItemId)
-        window.location.href = "../html/variety.html"
+        window.location.href = "../html/cloth.html"
     })
 }
 
