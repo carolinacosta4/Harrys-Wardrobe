@@ -6,7 +6,7 @@ function fillBodyContainer(){
     let bodyContainer = document.getElementById("bodyContainer")
     let submain = User.getUserLogged().clothLoad
     let main = submain.replace(/\d+$/, '')
-    result = `<div class="row"><div class="col-md-9 col-sm-10 col-11" id="containerOutfit"><img src="../assets/${main}/${User.getUserLogged().clothLoad}each.png" id="outfitImg"></div>`
+    result = `<div class="row"><div class="col-md-9 col-sm-10 col-11" id="containerOutfit"><img class="img-fluid" src="../assets/${main}/${User.getUserLogged().clothLoad}each.png" id="outfitImg"></div>`
     let favorites = User.getUserLogged().favorites
     if (favorites.includes(User.getUserLogged().clothLoad)){
         result += `<div class="col-md-1 col-sm-2 col-1"><i class="fa-solid fa-heart fa-2xl Fav" id="favorite"></i></div>`

@@ -105,8 +105,8 @@ img{
 @media (max-width: 575px) {
     #containerOutfits{
         display: flex;
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 }
 

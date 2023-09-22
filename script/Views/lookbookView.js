@@ -34,7 +34,7 @@ function fillContainerBody() {
       const endIndex = Math.min(startIndex + itemsPerPage, totalItems)
   
       for (let i = startIndex; i < endIndex; i++) {
-        result += `<div class="col-md-3 col-sm-6 col-xs-12"><img id="${arrayCloth[i].id}" class="cloth" src="${arrayCloth[i].src}"></div>`
+        result += `<div class="col-md-3 col-sm-6 col-xs-12"><img id="${arrayCloth[i].id}" class="cloth img-fluid" src="${arrayCloth[i].src}"></div>`
       }
   
       result += `</div>`
