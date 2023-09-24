@@ -7,9 +7,12 @@ export class Users {
     isBlocked = false;
     pageLoad = "";
     clothLoad = "";
-    favorites = []
+    favorites = [];
+    following = [];
+    followers = [];
+    openAccount = ""
 
-    constructor(username, email, password, avatar, code, isBlocked, pageLoad, clothLoad, favorites){
+    constructor(username, email, password, avatar, code, isBlocked, pageLoad, clothLoad, favorites, following, followers, openAccount){
         this.username = username
         this.email = email
         this.password = password
@@ -19,6 +22,9 @@ export class Users {
         this.pageLoad = pageLoad
         this.clothLoad = clothLoad
         this.favorites = favorites
+        this.following = following
+        this.followers = followers
+        this.openAccount = openAccount
     }
 }
 
@@ -66,7 +72,10 @@ export function saveUser(username, email, password) {
         false,
         "",
         "",
-        []
+        [],
+        [],
+        [],
+        ""
     )
     if (userExists(username, email) === "email"){
         validationMessage.textContent = "Email already in use. Try another one!"
@@ -104,7 +113,7 @@ export function editUser(username){
     }
     else {
         const loggedUser = getUserLogged()
-        const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites)
+        const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, loggedUser.following, loggedUser.followers, loggedUser.openAccount)
         const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
         usersHarry[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -121,7 +130,7 @@ export function editEmail(email){
     }
     else {
         const loggedUser = getUserLogged()
-        const updatedUser = new Users(loggedUser.username, email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites)
+        const updatedUser = new Users(loggedUser.username, email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, loggedUser.following, loggedUser.followers, loggedUser.openAccount)
         const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
         usersHarry[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -134,7 +143,7 @@ export function editPassword(oldPassword, newPassword){
     const validationMessagePassword = document.getElementById("validationMessagePassword")
     const loggedUser = getUserLogged()
     if (oldPassword === loggedUser.password){
-        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites)
+        const updatedUser = new Users(loggedUser.username, loggedUser.email, newPassword, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, loggedUser.following, loggedUser.followers, loggedUser.openAccount)
         const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
         usersHarry[index] =  updatedUser
         sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -168,7 +177,7 @@ export function isUserBlocked(userID){
 export function blockUser(userID){
     const block = true
     const user  = usersHarry.find(user => user.username === userID)
-    const updatedUser = new Users(user.username, user.email, user.password, user.avatar,user.code, block, user.pageLoad, user.clothLoad, user.favorites)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar,user.code, block, user.pageLoad, user.clothLoad, user.favorites, user.following, user.followers, user.openAccount)
     const index  = usersHarry.findIndex(user => user.username === userID)
     usersHarry[index] =  updatedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
@@ -177,7 +186,7 @@ export function blockUser(userID){
 export function unblockUser(userID){
     const block = false
     const user  = usersHarry.find(user => user.username === userID)
-    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.code, block, user.pageLoad, user.clothLoad, user.favorites)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, user.code, block, user.pageLoad, user.clothLoad, user.favorites, user.following, user.followers, user.openAccount)
     const index  = usersHarry.findIndex(user => user.username === userID)
     usersHarry[index] =  updatedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
@@ -190,7 +199,7 @@ export function exportBlockedUsers(){
 
 export function changePageLoad(pageLoad){
     const loggedUser = getUserLogged()
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, pageLoad, loggedUser.clothLoad, loggedUser.favorites)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, pageLoad, loggedUser.clothLoad, loggedUser.favorites, loggedUser.following, loggedUser.followers, loggedUser.openAccount)
     const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
     usersHarry[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -199,7 +208,7 @@ export function changePageLoad(pageLoad){
 
 export function changeClothLoad(clothLoad){
     const loggedUser = getUserLogged()
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, clothLoad, loggedUser.favorites)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, clothLoad, loggedUser.favorites, loggedUser.following, loggedUser.followers, loggedUser.openAccount)
     const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
     usersHarry[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -210,7 +219,7 @@ export function addFavorite(clothID){
     const loggedUser = getUserLogged()
     let favorites = loggedUser.favorites
     favorites.push(clothID)
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, favorites)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, favorites, loggedUser.following, loggedUser.followers, loggedUser.openAccount)
     const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
     usersHarry[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -222,7 +231,7 @@ export function deleteFavorite(clothID){
     let favorites = loggedUser.favorites
     let indexRem = favorites.indexOf(clothID)
     favorites.splice(indexRem, 1)
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, favorites)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, favorites, loggedUser.following, loggedUser.followers, loggedUser.openAccount)
     const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
     usersHarry[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -231,7 +240,7 @@ export function deleteFavorite(clothID){
 
 export function editAvatar(selectedAvatar){
     const loggedUser = getUserLogged()
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, selectedAvatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, selectedAvatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, loggedUser.following, loggedUser.followers, loggedUser.openAccount)
     const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
     usersHarry[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
@@ -241,9 +250,71 @@ export function editAvatar(selectedAvatar){
 
 export function editCode(userID, newCode){
     const user  = usersHarry.find(user => user.username === userID)
-    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, newCode, user.block, user.pageLoad, user.clothLoad, user.favorites)
+    const updatedUser = new Users(user.username, user.email, user.password, user.avatar, newCode, user.block, user.pageLoad, user.clothLoad, user.favorites, user.following, user.followers, user.openAccount)
     const index  = usersHarry.findIndex(user => user.username === userID)
     usersHarry[index] =  updatedUser
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+}
+
+export function findUser(userID){
+    const matchingUsers = usersHarry.filter(user => user.username.includes(userID))
+    return matchingUsers
+}
+
+export function editAccountLoad(newAccountLoad){
+    const loggedUser = getUserLogged()
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, loggedUser.following, loggedUser.followers, newAccountLoad)
+    const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+    usersHarry[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+    location.reload()
+}
+
+export function accountLoad(){
+    let userName = getUserLogged().openAccount
+    const index = usersHarry.findIndex(user => user.username == userName)
+    let user = usersHarry[index]
+    return user
+}
+
+export function followUser(userID){
+    const loggedUser = getUserLogged()
+    let following = loggedUser.following
+    following.push(userID)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, following, loggedUser.followers, loggedUser.openAccount)
+    const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+    usersHarry[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+
+    let followers = loggedUser.followers
+    followers.push(loggedUser.username)
+    const user  = usersHarry.find(user => user.username === userID)
+    const followedUser = new Users(user.username, user.email, user.password, user.avatar, user.code, user.isBlocked, user.pageLoad, user.clothLoad, user.favorites, user.following, followers, user.newAccountLoad)
+    const followedIndex = usersHarry.findIndex(user => user.username === userID)
+    usersHarry[followedIndex] = followedUser
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+}
+
+export function unfollowUser(userID){
+    const loggedUser = getUserLogged()
+    let following = loggedUser.following
+    let indexRem = following.indexOf(userID)
+    following.splice(indexRem, 1)
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, following, loggedUser.followers, loggedUser.openAccount)
+    const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
+    usersHarry[index] =  updatedUser
+    sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+    localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+
+    let followers = loggedUser.followers
+    let indexRemFollowers = following.indexOf(userID)
+    followers.splice(indexRemFollowers, 1)
+    const user  = usersHarry.find(user => user.username === userID)
+    const followedUser = new Users(user.username, user.email, user.password, user.avatar, user.code, user.isBlocked, user.pageLoad, user.clothLoad, user.favorites, user.following, followers, user.newAccountLoad)
+    const followedIndex = usersHarry.findIndex(user => user.username === userID)
+    usersHarry[followedIndex] = followedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
 }
 

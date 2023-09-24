@@ -1,0 +1,116 @@
+@font-face {
+    font-family: Anton Regular;
+    src: url("../assets/Anton-Regular.ttf");
+}
+
+@font-face {
+    font-family: Jost Medium;
+    src: url("../assets/Jost-Medium.ttf");
+}
+
+@font-face {
+    font-family: Jost Regular;
+    src: url("../assets/Jost-Regular.ttf");
+}
+
+body{
+    background-color: #ABBD8F !important;
+    margin: 8px !important;
+}
+
+p{
+    color: #242D3E !important; 
+}
+
+#bodyWebsite{
+    display: flex;
+    justify-content: center;
+}
+
+#formSearch{
+    display: flex;
+    justify-content: center;
+}
+
+input::placeholder:not(.following){
+	color: #242D3E;
+}
+
+input::placeholder:focus:not(.following){
+	color: #242D3E;
+}
+
+input:focus:not(.following) {
+    border-bottom: 2px solid #242D3E;
+	color: #242D3E;
+	outline: none;
+}
+
+input:not(.following){
+	border: 0px;
+	border-bottom: 2px solid #242D3E;
+	border-radius: 2px;
+	width: 50%;
+	color: #242D3E;
+	font-family: Jost Regular;
+	font-size: 16px;
+	background: #ABBD8F;
+}
+
+input[type="submit"] {
+	border-radius: 10px;
+	border: 1px solid transparent;
+	background-color: #242D3E;
+	color: #ABBD8F;
+	font-size: 20px;
+	width: 10em;
+    height: 2em;
+	transition: transform 80ms ease-in;
+	cursor: pointer;
+}
+
+.own{
+    border-radius: 10px;
+	border: 1px solid transparent;
+	background-color: #ABBD8F;
+	color: #ABBD8F;
+	font-size: 20px;
+	width: 8em !important;
+    height: 2em;
+}
+
+.following{
+    border-radius: 10px;
+	border: 1px solid transparent;
+	background-color: #ECE4D3;
+	color: #ABBD8F;
+	font-size: 20px;
+	width: 8em !important;
+    height: 2em;
+	transition: transform 80ms ease-in;
+	cursor: pointer;
+}
+
+.following:focus {
+	color: #242D3E;
+	outline: none;
+}
+
+#tableFoundUsers{
+    margin: 30px 0;
+    width: 90%;
+}
+
+.avatar{
+    border-radius: 4px !important;
+    width: 10em;
+    --bs-gutter-x: 0;
+}
+
+.foundUserRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1em;
+}

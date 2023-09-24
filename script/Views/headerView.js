@@ -23,14 +23,19 @@ function navbarView() {
         <a id="shoes" class="menu">SHOES</a>
         <a id="accessories" class="menu">ACESSORIES</a></div></div></div></div></nav>
         <div class="col-md-8 col-sm-8 col-9">
-        <p id="mainTitle" onclick="window.location.href = '../index.html'">HARRY'S WARDROBE</p></div>
-        <div class="col-md-2 col-sm-2 col-1">
+        <p id="mainTitle" onclick="window.location.href = '../../index.html'">HARRY'S WARDROBE</p></div>
+        <div class="col-md-1 col-sm-1 col-1">
+        <i id="searchUsers" class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="col-md-1 col-sm-1 col-1">
         <nav class="navbar navbar-expand-lg d-flex justify-content-center">
-        <button class="navbar-toggler" id="logBtn" type="button" onclick="window.location.href = '../../html/account.html'">
+        <a id="userAccountOwn" href="../../html/account.html">
+        <button class="navbar-toggler" id="logBtn" type="button">
         <i class="fa-solid fa-user"></i>
         </button>
+        </a>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav2">
-        <a href="../html/account.html"><p id="account">ACCOUNT</p></a></div></div></nav>`
+        <a id="userAccountOwn" href="../../html/account.html"><p id="account">ACCOUNT</p></a></div></div></nav></div>`
     } else {
         result += `<div class="row headerRow"><div class="col-md-2"></div>
         <p class="col-md-8 col-10" id="mainTitle" onclick="window.location.href = '../index.html'">HARRY'S WARDROBE</p>

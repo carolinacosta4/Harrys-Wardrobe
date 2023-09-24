@@ -107,9 +107,15 @@ function initdata(){
             isBlocked: false,
             pageLoad: "",
             clothLoad: "",
-            favorites:[]
+            favorites:[],
+            following: [],
+            followers: [],
+            openAccount: ""
             },
         ]
         localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
     }
 }
+
+// localStorage.clear()
+// sessionStorage.clear()

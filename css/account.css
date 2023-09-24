@@ -93,6 +93,10 @@ button{
     text-align: center;
 }
 
+#profileOtherUser{
+    text-align: center;
+}
+
 #btnEdit, #btnLogout, #btnFavs, #btnManage, .edit, .block, .unblock, .remove, #btnAddOutfit{
     width: 6em;
     height: 2em;
