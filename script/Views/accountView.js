@@ -1,9 +1,5 @@
 import * as User from "../Models/modelUsers.js"
 
-document.getElementById("userAccountOwn").addEventListener("click", () => {
-    User.editAccountLoad("ownUser")
-})
-
 let body = document.getElementById("body")
 function renderPage(value){
 
@@ -14,7 +10,7 @@ function renderPage(value){
             <div id="info"></div><div>
             <button id="btnEdit">Edit</button>
             <button id="btnFavs">Favorites</button>
-            <button id="btnLogout">LOGOUT</button></div></div>
+            <button id="btnLogout">LOGOUT</button><div id="followingFollowers"></div></div></div>
             <div id="favorites">
             <h2>Favorites</h2></div>
             <div id="editProfile">
@@ -37,7 +33,7 @@ function renderPage(value){
             <button id="btnFavs">Favorites</button>
             <button id="btnManage">Manage</button>
             <button id="btnAddOutfit" data-bs-toggle="modal" data-bs-target="#addClothModal">Add cloth</button>
-            <button id="btnLogout">LOGOUT</button></div></div>
+            <button id="btnLogout">LOGOUT</button><div id="followingFollowers"></div></div></div>
             <div id="favorites"><h2>Favorites</h2></div>
             <div id="editProfile"><h2>Edit profile</h2>
             <div id="editAvatar">
@@ -125,10 +121,23 @@ function renderPage(value){
     document.getElementById("info").innerHTML = `<img src=${User.getUserLogged().avatar} id="pfp"><h1>${User.getUserLogged().username}</h1>`
 
     }else{
-        body.innerHTML = `<div id="profileOtherUser">
-        <div id="info"></div><div>
-        <button id="btnFollow">FOLLOW</button></div></div>
-        <div id="favorites"></div>`
+        let result = ""
+        body.innerHTML = ""
+        result += `<div id="profileOtherUser">
+        <div id="info"></div><div>`
+
+        let userFollowing = User.getUserLogged().following
+        if(userFollowing.includes(User.accountLoad().username)){
+            result += `<input type="button" class="unfollow following col-md-5" id="${User.accountLoad().username}" value="UNFOLLOW"></input></div>`
+        }else{
+            result += `<input type="button" class="follow following col-md-5" id="${User.accountLoad().username}" value="FOLLOW"></input></div>`
+        }
+
+        result += `<div id="followingFollowers"></div></div><div id="favorites"></div>`
+
+        body.innerHTML = result        
+
+        document.getElementById("followingFollowers").innerHTML = `<a class="followingFollowers" data-bs-toggle="modal" data-bs-target="#followingModal">${User.accountLoad().following.length} Following</a><a id="followers" class="followingFollowers" data-bs-toggle="modal" data-bs-target="#followersModal">${User.accountLoad().followers.length} Followers</a></div>`
 
         document.getElementById("info").innerHTML = `<img src=${User.accountLoad().avatar} id="pfp"><h1>${User.accountLoad().username}</h1>`
         document.getElementById("favorites").innerHTML = `<h2>Favorites</h2><div id="gridFavorites" class="container"><div class="row" id="rowFavorites"></div></div>`
@@ -147,15 +156,63 @@ function renderPage(value){
                 window.location.href = "../html/cloth.html"
             })
         }
+
+        let follow = document.getElementsByClassName("follow")
+        for (let i = 0; i < follow.length; i++) {
+            follow[i].addEventListener("click", function(event) {
+                let clickedItemId = event.target.id
+                User.followUser(clickedItemId)
+                renderPage()
+                updateEventListeners()
+            })
+        }
+
+        let unfollow = document.getElementsByClassName("unfollow")
+        for (let i = 0; i < unfollow.length; i++) {
+            unfollow[i].addEventListener("click", function(event) {
+                let clickedItemId = event.target.id
+                User.unfollowUser(clickedItemId)
+                renderPage()
+                updateEventListeners()
+            })
+        }
+
+        function updateEventListeners(){
+            let follow = document.getElementsByClassName("follow")
+            for (let i = 0; i < follow.length; i++) {
+                follow[i].addEventListener("click", function(event) {
+                    let clickedItemId = event.target.id
+                    User.followUser(clickedItemId)
+                    renderPage()
+                    updateEventListeners()
+                })
+            }
+        
+            let unfollow = document.getElementsByClassName("unfollow")
+            for (let i = 0; i < unfollow.length; i++) {
+                unfollow[i].addEventListener("click", function(event) {
+                    let clickedItemId = event.target.id
+                    User.unfollowUser(clickedItemId)
+                    renderPage()
+                    updateEventListeners()
+                })
+            }
+        }
     }
 }
 
 if(User.getUserLogged().openAccount == "ownUser"){
     renderPage(1)
+    tableFollowingList()
+    tableFollowersList()
 }else if(User.getUserLogged().openAccount == User.getUserLogged().username){
     renderPage(1)
+    tableFollowingList()
+    tableFollowersList()
 }else{
     renderPage(2)
+    tableFollowingList()
+    tableFollowersList()
 }
 
 document.getElementById("btnLogout").addEventListener("click", () => {
@@ -209,6 +266,52 @@ for (let i = 0; User.getUserLogged().favorites.length > i ; i++){
     let submain = User.getUserLogged().favorites[i]
     let main = submain.replace(/\d+$/, '')
     document.getElementById("rowFavorites").innerHTML += `<img id="${User.getUserLogged().favorites[i]}" class="cloth" src="../assets/${main}/${User.getUserLogged().favorites[i]}.png">`
+}
+
+function tableFollowingList(){
+    if(User.getUserLogged().openAccount == "ownUser"){
+        document.getElementById("followingFollowers").innerHTML = `<a class="followingFollowers" data-bs-toggle="modal" data-bs-target="#followingModal">${User.getUserLogged().following.length} Following</a><a id="followers" class="followingFollowers" data-bs-toggle="modal" data-bs-target="#followersModal">${User.getUserLogged().followers.length} Followers</a></div>`
+    }else{
+        document.getElementById("followingFollowers").innerHTML = `<a class="followingFollowers" data-bs-toggle="modal" data-bs-target="#followingModal">${User.accountLoad().following.length} Following</a><a id="followers" class="followingFollowers" data-bs-toggle="modal" data-bs-target="#followersModal">${User.accountLoad().followers.length} Followers</a></div>`
+    }
+        
+    let userFollowingArray = User.followingList()
+
+    let tableFollowing = document.getElementById("tableFollowing")
+    let result = ""
+    if(userFollowingArray.length == 0){
+        result += `<div><p>You are not following anyone :(</p></div>`
+    }else{
+        for(let i = 0; userFollowingArray.length > i; i++){
+            result += `<img class="avatar" src="${userFollowingArray[i].avatar}" alt="User avatar">
+            <a id="${userFollowingArray[i].username}" href="../html/account.html"><p class="userFollow" id="${userFollowingArray[i].username}">${userFollowingArray[i].username}</p></a>`
+        }
+    }
+    tableFollowing.innerHTML = result
+
+    let userFollow = document.getElementsByClassName("userFollow")
+    for (let i = 0; i < userFollow.length; i++) {
+        userFollow[i].addEventListener("click", function(event) {
+            let clickedItemId = event.target.id
+            User.editAccountLoad(clickedItemId)
+        })
+    }
+}
+
+function tableFollowersList(){     
+    let userFollowersArray = User.followersList()
+
+    let tableFollowers = document.getElementById("tableFollowers")
+    let result = ""
+    if(userFollowersArray.length == 0){
+        result += `<div><p>Nobody follows you :(</p></div>`
+    }else{
+        for(let i = 0; userFollowersArray.length > i; i++){
+            result += `<img class="avatar" src="${userFollowersArray[i].avatar}" alt="User avatar">
+            <a id="${userFollowersArray[i].username}" href="../html/account.html"><p class="userFollow" id="${userFollowersArray[i].username}">${userFollowersArray[i].username}</p></a>`
+        }
+    }
+    tableFollowers.innerHTML = result
 }
 
 let cloth = document.getElementsByClassName("cloth")

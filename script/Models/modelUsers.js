@@ -280,21 +280,22 @@ export function accountLoad(){
 
 export function followUser(userID){
     const loggedUser = getUserLogged()
-    let following = loggedUser.following
-    following.push(userID)
-    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, following, loggedUser.followers, loggedUser.openAccount)
+    const prevFollowedUser = sessionStorage.getItem("prevFollowedUser")
+
+    const updatedFollowing = [...loggedUser.following, userID]
+    const updatedUser = new Users(loggedUser.username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, updatedFollowing, loggedUser.followers, loggedUser.openAccount)
     const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
     usersHarry[index] =  updatedUser
     sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
 
-    let followers = loggedUser.followers
-    followers.push(loggedUser.username)
     const user  = usersHarry.find(user => user.username === userID)
-    const followedUser = new Users(user.username, user.email, user.password, user.avatar, user.code, user.isBlocked, user.pageLoad, user.clothLoad, user.favorites, user.following, followers, user.newAccountLoad)
+    const updatedFollowers = [...user.followers, loggedUser.username]
+    const followedUser = new Users(user.username, user.email, user.password, user.avatar, user.code, user.isBlocked, user.pageLoad, user.clothLoad, user.favorites, user.following, updatedFollowers, user.newAccountLoad)
     const followedIndex = usersHarry.findIndex(user => user.username === userID)
     usersHarry[followedIndex] = followedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+    sessionStorage.setItem("prevFollowedUser", userID)
 }
 
 export function unfollowUser(userID){
@@ -316,6 +317,68 @@ export function unfollowUser(userID){
     const followedIndex = usersHarry.findIndex(user => user.username === userID)
     usersHarry[followedIndex] = followedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+}
+
+export function  followingList(){
+    const loggedUser = getUserLogged()
+    let userOpenAccount = loggedUser.openAccount
+
+    if(userOpenAccount == "ownUser"){
+        let eachUser = ""
+        let userFollowingArray = []
+        let usersFollowing = loggedUser.following
+
+        for(let i=0; usersFollowing.length > i; i++){
+            eachUser = usersHarry.find(user => user.username == usersFollowing[i])
+            userFollowingArray.push(eachUser)
+        }
+        return userFollowingArray
+    }else{
+        let findUser = usersHarry.find(user => user.username == userOpenAccount)
+        let followingList = findUser.following
+        if(followingList.length == 0){
+            return []
+        }else{
+            let eachUser = ""
+            let userFollowingArray = []
+            for(let i=0; followingList.length > i; i++){
+                eachUser = usersHarry.find(user => user.username == followingList[i])
+                userFollowingArray.push(eachUser)
+            }
+            return userFollowingArray
+        }
+    }
+}
+
+export function  followersList(){
+    const loggedUser = getUserLogged()
+    let userOpenAccount = loggedUser.openAccount
+
+    if(userOpenAccount == "ownUser"){
+        let eachUser = ""
+        let userFollowersArray = []
+        let usersFollowers = loggedUser.followers
+
+        for(let i=0; usersFollowers.length > i; i++){
+            eachUser = usersHarry.find(user => user.username == usersFollowers[i])
+            userFollowersArray.push(eachUser)
+        }
+        return userFollowersArray
+    }else{
+        let findUser = usersHarry.find(user => user.username == userOpenAccount)
+        let followersList = findUser.followers
+        if(followersList.length == 0){
+            return []
+        }else{
+            let eachUser = ""
+            let userFollowersArray = []
+            for(let i=0; followersList.length > i; i++){
+                eachUser = usersHarry.find(user => user.username == followersList[i])
+                userFollowersArray.push(eachUser)
+            }
+            return userFollowersArray
+        }
+    }
 }
 
 // localStorage.clear()

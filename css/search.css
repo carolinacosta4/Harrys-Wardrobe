@@ -32,20 +32,6 @@ p{
     justify-content: center;
 }
 
-input::placeholder:not(.following){
-	color: #242D3E;
-}
-
-input::placeholder:focus:not(.following){
-	color: #242D3E;
-}
-
-input:focus:not(.following) {
-    border-bottom: 2px solid #242D3E;
-	color: #242D3E;
-	outline: none;
-}
-
 input:not(.following){
 	border: 0px;
 	border-bottom: 2px solid #242D3E;
@@ -74,7 +60,7 @@ input[type="submit"] {
 	border: 1px solid transparent;
 	background-color: #ABBD8F;
 	color: #ABBD8F;
-	font-size: 20px;
+	font-size: 16px;
 	width: 8em !important;
     height: 2em;
 }
@@ -82,18 +68,13 @@ input[type="submit"] {
 .following{
     border-radius: 10px;
 	border: 1px solid transparent;
-	background-color: #ECE4D3;
+	background-color: #242D3E;
 	color: #ABBD8F;
-	font-size: 20px;
+	font-size: 16px;
 	width: 8em !important;
     height: 2em;
 	transition: transform 80ms ease-in;
 	cursor: pointer;
-}
-
-.following:focus {
-	color: #242D3E;
-	outline: none;
 }
 
 #tableFoundUsers{
@@ -102,7 +83,7 @@ input[type="submit"] {
 }
 
 .avatar{
-    border-radius: 4px !important;
+    border-radius: 50% !important;
     width: 10em;
     --bs-gutter-x: 0;
 }

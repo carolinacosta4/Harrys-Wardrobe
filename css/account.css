@@ -8,14 +8,14 @@
     src: url("../assets/Jost-Regular.ttf");
 }
 
-body{
+body:not(.userFollow){
     background-color: #594C40 !important;
     color: #ECE4D3 !important;
     margin: 8px !important;
     font-family: Jost Regular;
 }
 
-p:not(#removeUserP), .dropbtn{
+p:not(#removeUserP, .userFollow), .dropbtn{
     color: #ECE4D3 !important; 
 }
 
@@ -88,7 +88,7 @@ button{
 
 #profile{
     display: grid;
-    grid-template-rows: 4fr 2fr 1fr;
+    grid-template-rows: 4fr 2fr;
     justify-content: center;
     text-align: center;
 }
@@ -241,6 +241,61 @@ table{
 
 i:not(.close){
     color: #ECE4D3 !important;
+}
+
+.following{
+    border-radius: 10px;
+	border: 1px solid transparent;
+	background-color: #ECE4D3;
+	color: #594C40;
+	font-size: 20px;
+	width: 8em !important;
+    height: 2em;
+	transition: transform 80ms ease-in;
+	cursor: pointer;
+}
+
+#followingFollowers{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 1em;
+}
+
+.followingFollowers{
+    color: #ECE4D3 !important;
+}
+
+#followers{
+    margin-left: 1em;
+}
+
+#tableFollowing, #tableFollowers{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    row-gap: 1em;
+}
+
+.avatar{
+    width: 8em;
+    border-radius: 50%;
+}
+
+.userFollow, #tableFollowing p, #tableFollowers p{
+    color: #594C40 !important;
+    font-size: 20px;
+}
+
+.followingTable{
+    border-radius: 10px;
+	border: 1px solid transparent;
+	background-color: #594C40;
+	color: #ECE4D3;
+	font-size: 20px;
+	width: 6em !important;
+    height: 2em;
+	transition: transform 80ms ease-in;
+	cursor: pointer;
 }
 
 @media (max-width: 575px) {

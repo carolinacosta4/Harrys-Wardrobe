@@ -29,13 +29,11 @@ function navbarView() {
         </div>
         <div class="col-md-1 col-sm-1 col-1">
         <nav class="navbar navbar-expand-lg d-flex justify-content-center">
-        <a id="userAccountOwn" href="../../html/account.html">
         <button class="navbar-toggler" id="logBtn" type="button">
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-user userAccount"></i>
         </button>
-        </a>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav2">
-        <a id="userAccountOwn" href="../../html/account.html"><p id="account">ACCOUNT</p></a></div></div></nav></div>`
+        <a class="userAccount"><p id="account">ACCOUNT</p></a></div></div></nav></div>`
     } else {
         result += `<div class="row headerRow"><div class="col-md-2"></div>
         <p class="col-md-8 col-10" id="mainTitle" onclick="window.location.href = '../index.html'">HARRY'S WARDROBE</p>
@@ -46,6 +44,14 @@ function navbarView() {
     }
     
   document.querySelector("header").innerHTML = result
+
+  let userAccount = document.getElementsByClassName("userAccount")
+    for (let i = 0; i < userAccount.length; i++) {
+        userAccount[i].addEventListener("click", function() {
+          User.editAccountLoad("ownUser")
+          window.location.href = "../../html/account.html"
+        })
+    }
 }
   
 navbarView()
