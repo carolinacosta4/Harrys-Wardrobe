@@ -113,6 +113,7 @@ export function editUser(username){
     }
     else {
         const loggedUser = getUserLogged()
+        everyFollower(username)
         const updatedUser = new Users(username, loggedUser.email, loggedUser.password, loggedUser.avatar, loggedUser.code, loggedUser.isBlocked, loggedUser.pageLoad, loggedUser.clothLoad, loggedUser.favorites, loggedUser.following, loggedUser.followers, loggedUser.openAccount)
         const index  = usersHarry.findIndex(user => user.username === loggedUser.username)
         usersHarry[index] =  updatedUser
@@ -296,6 +297,7 @@ export function followUser(userID){
     usersHarry[followedIndex] = followedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
     sessionStorage.setItem("prevFollowedUser", userID)
+    // location.reload()
 }
 
 export function unfollowUser(userID){
@@ -317,6 +319,7 @@ export function unfollowUser(userID){
     const followedIndex = usersHarry.findIndex(user => user.username === userID)
     usersHarry[followedIndex] = followedUser
     localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
+    // location.reload()
 }
 
 export function  followingList(){
@@ -378,6 +381,23 @@ export function  followersList(){
             }
             return userFollowersArray
         }
+    }
+}
+
+function everyFollower(newName){
+    const loggedUser = getUserLogged()
+    let userFollower = loggedUser.followers
+    for(let i=0; userFollower.length > i; i++){
+        let userFol = userFollower[i]
+        let findUser = usersHarry.find(user => user.username == userFol)
+        let followerFollowing = findUser.following
+        let loggedUserIndex = followerFollowing.indexOf(loggedUser.username)
+        followerFollowing.splice(loggedUserIndex, 1, newName)        
+        const updatedUser = new Users(findUser.username, findUser.email, findUser.password, findUser.avatar, findUser.code, findUser.isBlocked, findUser.pageLoad, findUser.clothLoad, findUser.favorites, followerFollowing, findUser.followers, findUser.openAccount)
+        const index = usersHarry.findIndex(user => user.username == findUser.username)
+        usersHarry[index] =  updatedUser
+        sessionStorage.setItem("loggedUser", JSON.stringify(updatedUser))
+        localStorage.setItem("usersHarry", JSON.stringify(usersHarry))
     }
 }
 
