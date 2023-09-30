@@ -269,7 +269,7 @@ i:not(.close){
     margin-left: 1em;
 }
 
-#tableFollowing, #tableFollowers{
+#tableFollowingModal, #tableFollowersModal{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -277,13 +277,23 @@ i:not(.close){
 }
 
 .avatar{
-    width: 8em;
+    width: 6em;
     border-radius: 50%;
 }
 
 .userFollow, #tableFollowing p, #tableFollowers p{
     color: #594C40 !important;
     font-size: 20px;
+}
+
+hr{
+    color: #594C40 !important;
+    height: 0.1em !important;
+    border-radius: 50%;
+}
+
+.userFollow{
+    text-transform: uppercase;
 }
 
 .followingTable{

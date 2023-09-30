@@ -20,7 +20,8 @@ document.getElementById("formSearch").addEventListener("submit", (e) => {
             result = "<p>No users found :(</p>"
         }else{
             for(let i = 0; arrayFound.length > i; i++){
-                result += `<div class="row foundUserRow"><img class="avatar col-md-1" src="${arrayFound[i].avatar}" alt="User avatar">
+                result += `<div class="row foundUserRow userFollow" id="${arrayFound[i].username}">
+                <a class="col-md-1" href="../html/account.html"><img class="avatar userFollow" id="${arrayFound[i].username}" src="${arrayFound[i].avatar}" alt="User avatar"></a>
                 <a class="col-md-6" id="${arrayFound[i].username}" href="../html/account.html"><p class="userFollow" id="${arrayFound[i].username}">${arrayFound[i].username}</p></a>`
                 let userFollowing = User.getUserLogged().following
                 if(arrayFound[i].username == User.getUserLogged().username){
@@ -30,6 +31,7 @@ document.getElementById("formSearch").addEventListener("submit", (e) => {
                 }else{
                     result += `<input type="button" class="follow following col-md-5" id="${arrayFound[i].username}" value="FOLLOW"></input></div>`
                 }
+                result += `<hr>`
             }
         }
 

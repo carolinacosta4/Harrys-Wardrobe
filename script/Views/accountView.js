@@ -283,9 +283,10 @@ function tableFollowingList(){
         result += `<div><p>You are not following anyone :(</p></div>`
     }else{
         for(let i = 0; userFollowingArray.length > i; i++){
-            result += `<img class="avatar" src="${userFollowingArray[i].avatar}" alt="User avatar">
-            <a id="${userFollowingArray[i].username}" href="../html/account.html"><p class="userFollow" id="${userFollowingArray[i].username}">${userFollowingArray[i].username}</p></a>`
+            result += `<div id="tableFollowingModal"><a href="../../html/account.html"><img class="avatar userFollow" id="${userFollowingArray[i].username}" src="${userFollowingArray[i].avatar}" alt="User avatar"></a>
+            <a id="${userFollowingArray[i].username}" href="../../html/account.html"><p class="userFollow" id="${userFollowingArray[i].username}">${userFollowingArray[i].username}</p></a></div><hr>`
         }
+
     }
     tableFollowing.innerHTML = result
 
@@ -293,6 +294,7 @@ function tableFollowingList(){
     for (let i = 0; i < userFollow.length; i++) {
         userFollow[i].addEventListener("click", function(event) {
             let clickedItemId = event.target.id
+            console.log(clickedItemId)
             User.editAccountLoad(clickedItemId)
         })
     }
@@ -307,11 +309,20 @@ function tableFollowersList(){
         result += `<div><p>Nobody follows you :(</p></div>`
     }else{
         for(let i = 0; userFollowersArray.length > i; i++){
-            result += `<img class="avatar" src="${userFollowersArray[i].avatar}" alt="User avatar">
-            <a id="${userFollowersArray[i].username}" href="../html/account.html"><p class="userFollow" id="${userFollowersArray[i].username}">${userFollowersArray[i].username}</p></a>`
+            result += `<div id="tableFollowersModal"><a href="../../html/account.html"><img class="avatar userFollow" id="${userFollowersArray[i].username}" src="${userFollowersArray[i].avatar}" alt="User avatar"></a>
+            <a id="${userFollowersArray[i].username}" href="../../html/account.html"><p class="userFollow" id="${userFollowersArray[i].username}">${userFollowersArray[i].username}</p></a></div><hr>`
         }
     }
     tableFollowers.innerHTML = result
+
+    let userFollow = document.getElementsByClassName("userFollow")
+    for (let i = 0; i < userFollow.length; i++) {
+        userFollow[i].addEventListener("click", function(event) {
+            let clickedItemId = event.target.id
+            console.log(clickedItemId)
+            User.editAccountLoad(clickedItemId)
+        })
+    }
 }
 
 let cloth = document.getElementsByClassName("cloth")
