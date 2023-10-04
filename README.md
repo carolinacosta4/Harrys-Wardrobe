@@ -64,12 +64,12 @@ Welcome to Harry Styles' Style Hub, your ultimate destination for all things rel
 
 <b>Personal Favorites</b>: Create your profile, save your favorite outfits, and tailor your style inspiration to your liking.
 
-![image](assets/readMeFiles/userPage.png)
+![image](assets/readMeFiles/userAccount.png)
 
 <b>Search for friends</b>: Search for your friends username and follow them or see their favorite outfits!
 
 ![image](assets/readMeFiles/search.png)
-![image](assets/readMeFiles/userAccount.png)
+![image](assets/readMeFiles/userPage.png)
 
 Join us on this fashionable journey as we unravel the style secrets of Harry Styles, and let his iconic fashion choices inspire your own wardrobe.
 
