@@ -47,6 +47,9 @@ Development of the visual identity and communication:
 
 Welcome to Harry Styles' Style Hub, your ultimate destination for all things related to Harry Styles' iconic fashion choices. Our mission is to celebrate and showcase the diverse and captivating wardrobe of one of the world's most influential fashion icons.
 
+<b>Landing Page</b>:
+![image](assets/readMeFiles/landingPage.png)
+
 <b>Explore His Wardrobe</b>: Dive into a curated collection of Harry Styles' outfits, categorized by tops, bottoms, outerwear, shoes, and accessories.
 
 ![image](https://github.com/carolinacosta4/Harrys-Wardrobe/assets/115319284/db759ede-c06a-4be4-9e22-7849820fa628)
